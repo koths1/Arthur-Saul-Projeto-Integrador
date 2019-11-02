@@ -1,0 +1,11 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+.bg-topo{
+    background-color: mediumaquamarine;
+}
+.img-200{
+    width:"200px";
+    height:"200px";
+}
+.footercooler{
+    background-color: mediumaquamarine;
+}

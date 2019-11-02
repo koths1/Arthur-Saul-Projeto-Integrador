@@ -1,0 +1,24 @@
+<!--Topo+Imagem do LAPICS-->
+<div class="container-fluid text-center bg-topo">
+    <header class="container col-3" width="100px" height="100px">
+      <img src="../assets/Images/lapics small.jpg" class="img-thumbnail">
+    </header>
+  </div>
+  <!--Botões-->
+  <div class="py-5 text-center">
+    <!--Deixa um espaço entre os componente acima e abaixo-->
+    <div class="container">
+      <!--Alinha os elementos que estiverem aqui dentro-->
+      <div class="row px-5">
+        <!--Cria uma linha, onde serão inseridos os botões-->
+        <!--Buttoncolor é um css personalizado para mudar a cor do botão-->
+        <!--Btn-block deixa todos os botões do mesmo tamanho-->
+        <div class="col"><a routerLink="/home" class="btn buttoncolor btn-block">Inicio</a></div>
+        <!--<div *ngIf="usuario.tipo === 'Participante'" class="col"><a routerLink="/meus-horarios/[(usuario.id)]" class="btn buttoncolor btn-block">Agendamentos</a></div>-->
+        <div class="col"><a routerLink="/agendamentos" class="btn buttoncolor btn-block">Agendamentos</a></div>
+        <div class="col"><a routerLink="/terapias" class="btn buttoncolor btn-block">Terapias</a></div>
+        <div class="col"><a routerLink="/recomendar-terapia" class="btn buttoncolor btn-block">Recomendar terapia</a></div>
+        <div class="col"><a routerLink="/login" class="btn buttoncolor btn-block">Acessar</a></div>
+      </div>
+    </div>
+  </div>

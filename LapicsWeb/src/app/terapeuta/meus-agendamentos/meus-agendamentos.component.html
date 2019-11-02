@@ -1,0 +1,36 @@
+<body>
+        <div class="row text-center">
+            <div class="col-md-12">
+                <h1 class="mb-3">Meus horários</h1>
+            </div>
+            <div class="col-md-12">
+                <p>Veja aqui os seus próximos horários</p>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-auto">
+            <table class="table table-responsive text-center">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Dia</th>
+                        <th scope="col">Hora</th>
+                        <th scope="col">Terapia</th>
+                        <th scope="col">Paciente</th>
+                        <th scope="col">Local</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let agendamento of agendamentos">
+                        <td>[(agendamento.data)]</td>
+                        <td>[(agendamento.hora)]</td>
+                        <td>[(agendamento.terapia)]</td>
+                        <td>[(agendamento.idParticipante)]</td>
+                        <td>LAPICS UFSM<br>
+                            Predio 20</td>
+                    </tr>
+                </tbody>
+            </table>            
+        </div>
+        </div>
+    </body>
+    

@@ -1,0 +1,7 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+.botón{
+    background-color: dimgray;
+}
+.botón:active{
+    background-color: black;
+}

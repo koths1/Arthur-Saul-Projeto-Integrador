@@ -1,0 +1,16 @@
+<body>
+    <div class="py-3 text-center">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="mb-3">Terapias</h1>
+                <p>Abaixo, a lista de terapias oferecidas pelo LAPICS UFSM<br>
+                    clique para mais informações!!!</p>
+            </div>
+        </div>
+        <ul class="terapias">
+            <div *ngFor="let terapia of terapias" class="py-1">
+            <button routerLink="/terapia-selecionada/{{terapia.nome}}"  class="btn btn-lg btn-primary col-3">{{ terapia.nome }}</button>
+            </div>
+        </ul>
+    </div>
+</body>

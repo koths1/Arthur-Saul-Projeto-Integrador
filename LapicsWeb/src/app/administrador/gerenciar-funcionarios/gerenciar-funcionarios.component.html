@@ -1,0 +1,37 @@
+<body>
+        <div class="row text-center">
+            <div class="col-md-12">
+                <h1 class="mb-3">Funcionários</h1>
+            </div>
+            <div class="col-md-12">
+                <p>Gerenciamento de Funcionários</p>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-auto">
+            <table class="table table-responsive text-center">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Nome</th>
+                        <th scope="col">CPF</th>
+                        <th scope="col">E-mail</th>
+                        <th scope="col">Senha</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let usuario of funcionarios">
+                        <td>[(usuario.nome)]</td>
+                        <td>[(usuario.CPF)]</td>
+                        <td>[(usuario.email)]</td>
+                        <td>[(usuario.senha)]</td>
+                    </tr>
+                </tbody>
+            </table>            
+        </div>
+        </div>
+        <div class="py-2 text-center">
+                <button type="button" routerLink="/cadastro" class="btn btn-primary">Cadastrar Funcionario</button>
+            </div>
+    </body>
+    
+

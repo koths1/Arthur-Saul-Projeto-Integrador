@@ -1,0 +1,89 @@
+<body>
+    <div class="py-5 text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="mb-3">Recomendar terapia</h1>
+                    <p>Responda as perguntas abaixo para receber uma lista com as terapias oferecidas no
+                        LAPICS que mais se adaptam às suas preferências.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <form>
+        <div class="py-3 text-center">
+            <div class="container">
+                <div class="form-group">
+                    <label for="Email" class="col-sm-2 col-form-label">Toque:</label>
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                        <label class="btn btn-secondary  ">
+                            <input [(ngModel)]="toque" value="S" type="radio" name="opcao" id="F" autocomplete="off" checked> Não me importo com toque
+                        </label>
+                        <label class="btn btn-secondary">
+                            <input [(ngModel)]="toque " value="N" type="radio" name="opcao" id="M" autocomplete="off"> Não quero ser tocado(a)
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Senha" class="col-sm-2 col-form-label">Som:</label>
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                        <label class="btn btn-secondary">
+                            <input [(ngModel)]="som" value="S" type="radio" name="opcao" id="F" checked> Não teho problema com musica
+                        </label>
+                        <label class="btn btn-secondary">
+                            <input [(ngModel)]="som" value="" type="radio" name="opcao" id="M"> Não gosto de sons/musica
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Senha" class="col-sm-2 col-form-label">Luz:</label>
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                        <label class="btn btn-secondary">
+                            <input [(ngModel)]="luz" value="S" type="radio" name="opcao" id="F" checked> Não tenho problema com luzes
+                        </label>
+                        <label class="btn btn-secondary">
+                            <input [(ngModel)]="luz" value="N" type="radio" name="opcao" id="M"> Não gosto de luzes coloridas
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Senha" class="col-sm-2 col-form-label">Cheiro:</label>
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                        <label class="btn btn-secondary">
+                            <input [(ngModel)]="cheiro" value="S" type="radio" name="opcao" id="F" checked> Não me importo
+                        </label>
+                        <label class="btn btn-secondary">
+                            <input [(ngModel)]="cheiro" value="N" type="radio" name="opcao" id="M"> Não gosto de aromas/incensos
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Senha" class="col-sm-2 col-form-label">Maca:</label>
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                        <label class="btn btn-secondary">
+                            <input [(ngModel)]="maca" value="S" type="radio" name="opcao" id="F" checked> Não me importo em deitar na maca
+                        </label>
+                        <label class="btn btn-secondary">
+                            <input [(ngModel)]="maca" value="N" type="radio" name="opcao" id="M"> Não quero deitar na maca
+                        </label>
+                    </div>
+                </div>
+                <div class="py-4">
+                    <button (click)="Recomenda()" type="button" class="btn btn-success">Enviar</button>
+                </div>
+                <!--Lista-->
+                <div class="py-3 text-center">
+                <ul *ngIf="terapias != null" class="terapiasRec" >
+                    <p>Aqui, a lista das terapias recomendadas para você!!!</p>
+                    <div class="py-1">
+                        <ul *ngFor="let terapia of terapiasRec">
+                            <li>{{ terapia.nome }}</li>
+                        </ul>
+                    </div>
+                </ul>
+            </div>
+            </div>
+        </div>
+    </form>
+</body>
