@@ -25,6 +25,10 @@ import { FormsModule } from '@angular/forms';
 import { MeusAgendamentosComponent } from './terapeuta/meus-agendamentos/meus-agendamentos.component';
 import { TerapeutasComponent } from './funcionario/terapeutas/terapeutas.component';
 import { AjustarCalendarioComponent } from './funcionario/ajustar-calendario/ajustar-calendario.component';
+import { HttpClientModule } from '@angular/common/http';
+import { NgbdDropdownBasic } from './dropdown-basic/dropdown-basic';
+import { NgbdDropdownBasicModule } from './dropdown-basic/dropdwon-basic.module';
+//import { EventEmitterService } from './services/event/event-emitter.service';
 
 @NgModule({
   declarations: [
@@ -49,11 +53,14 @@ import { AjustarCalendarioComponent } from './funcionario/ajustar-calendario/aju
   ],
   imports: [
     BrowserModule,
+    NgbdDropdownBasicModule,
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
     ModalModule.forRoot(),  //Para os modals
     NgbModule,    //NgbModule é o module do ng bootstrap
     FormsModule,  //Importamos forms module para usar o two way data binding [(ngModel)]="" no HTML
+    HttpClientModule, //importamos HttpClient para usar o
+    //EventEmitterService,  //importamos eventEmitter para chamar funções de outros componentes ex: comp2 chama função do comp1
     AppRoutingModule  //Para as rotas
   ],
   providers: [],

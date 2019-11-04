@@ -1,14 +1,14 @@
 <body>
-        <div class="row text-center">
-            <div class="col-md-12">
-                <h1 class="mb-3">Meus horários</h1>
-            </div>
-            <div class="col-md-12">
-                <p>Veja aqui os seus próximos horários</p>
-            </div>
+    <div class="row text-center">
+        <div class="col-md-12">
+            <h1 class="mb-3">Meus agendamentos</h1>
         </div>
-        <div class="row justify-content-center">
-            <div class="col-auto">
+        <div class="col-md-12">
+            <p>Veja aqui os seus próximos agendamentos</p>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-auto">
             <table class="table table-responsive text-center">
                 <thead class="thead-dark">
                     <tr>
@@ -17,6 +17,7 @@
                         <th scope="col">Terapia</th>
                         <th scope="col">Paciente</th>
                         <th scope="col">Local</th>
+                        <th scope="col">Ata e pós terapia</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -27,10 +28,10 @@
                         <td>[(agendamento.idParticipante)]</td>
                         <td>LAPICS UFSM<br>
                             Predio 20</td>
+                            <td><button class="btn btn-primary">Preencher</button></td>
                     </tr>
                 </tbody>
-            </table>            
+            </table>
         </div>
-        </div>
-    </body>
-    
+    </div>
+</body>

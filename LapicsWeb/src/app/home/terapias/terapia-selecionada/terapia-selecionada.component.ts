@@ -19,8 +19,8 @@ export class TerapiaSelecionadaComponent implements OnInit {
   terapia: Terapia;
 
   constructor(private activatedRoute: ActivatedRoute,
-              private terapiasService: TerapiasService) { 
-    this.activatedRoute.paramMap.subscribe(params =>{
+    private terapiasService: TerapiasService) {
+    this.activatedRoute.paramMap.subscribe(params => {
       this.terapy = params.get("terapia");
       this.terapia = terapiasService.getTerapia(this.terapy);
     })

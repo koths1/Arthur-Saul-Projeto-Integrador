@@ -13,6 +13,7 @@ import { MeusHorariosComponent } from './participante/meus-horarios/meus-horario
 import { TerapeutasComponent } from './funcionario/terapeutas/terapeutas.component';
 import { AjustarCalendarioComponent } from './funcionario/ajustar-calendario/ajustar-calendario.component';
 import { MeusAgendamentosComponent } from './terapeuta/meus-agendamentos/meus-agendamentos.component';
+import { PerfilComponent } from './home/perfil/perfil.component';
 
 
 //Path é uma string que combina com a URL do browser.
@@ -28,6 +29,7 @@ const routes: Routes = [
   { path: 'cadastro', component: CadastroComponent },
   { path: 'recomendar-terapia', component: RecomendarTerapiaComponent },
   { path: 'terapia-selecionada/:terapia', component: TerapiaSelecionadaComponent },
+  { path: 'perfil', component: PerfilComponent },
   { path: 'meus-horarios', component: MeusHorariosComponent },
   { path: 'meus-agendamentos', component: MeusAgendamentosComponent },
   { path: 'terapeutas', component: TerapeutasComponent },
@@ -35,14 +37,14 @@ const routes: Routes = [
   { path: 'ajustar-calendario', component: AjustarCalendarioComponent },
   { path: 'formulario-pesquisa', component: FormularioPesquisaComponent }
   //{ path: '', component: },
-  
+
   //{ path: '', component: }
 ];
 
-@NgModule({  
+@NgModule({
   imports: [
     RouterModule.forRoot(routes)
   ],
-  exports:[RouterModule]
+  exports: [RouterModule]
 })
 export class AppRoutingModule { }

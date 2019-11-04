@@ -14,7 +14,7 @@ export class TerapiasComponent implements OnInit {
 
   constructor(terapiasService: TerapiasService) {
     this.terapias = terapiasService.getTerapias();
-   }
+  }
 
   ngOnInit() {
   }

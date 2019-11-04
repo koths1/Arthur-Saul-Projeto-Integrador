@@ -7,27 +7,28 @@
             <p>Veja aqui os seus próximos horários</p>
         </div>
     </div>
+    <button routerLink="/perfil" class="btn btn-lg btn-primary"></button>
     <div class="row justify-content-center">
         <div class="col-auto">
-        <table class="table table-responsive text-center">
-            <thead class="thead-dark">
-                <tr>
-                    <th scope="col">Dia</th>
-                    <th scope="col">Hora</th>
-                    <th scope="col">Terapia</th>
-                    <th scope="col">Local</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let agendamento of agendamentos">
-                    <td>[(agendamento.data)]</td>
-                    <td>[(agendamento.hora)]</td>
-                    <td>[(agendamento.terapia)]</td>
-                    <td>LAPICS UFSM<br>
-                        Predio 20</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+            <table class="table table-responsive text-center">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Dia</th>
+                        <th scope="col">Hora</th>
+                        <th scope="col">Terapia</th>
+                        <th scope="col">Local</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let agendamento of agendamentos">
+                        <td>[(agendamento.data)]</td>
+                        <td>[(agendamento.hora)]</td>
+                        <td>[(agendamento.terapia)]</td>
+                        <td>LAPICS UFSM<br>
+                            Predio 20</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </body>

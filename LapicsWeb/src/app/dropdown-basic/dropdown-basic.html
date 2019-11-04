@@ -1,0 +1,8 @@
+<div class="col">
+    <div ngbDropdown class="d-inline-block">
+        <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Toggle dropdown</button>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <button routerLink="/perfil" ngbDropdownItem>Perfil</button>
+            <button (click)="logout()" ngbDropdownItem>Sair</button>
+        </div>
+    </div>

@@ -9,7 +9,8 @@
         </div>
         <ul class="terapias">
             <div *ngFor="let terapia of terapias" class="py-1">
-            <button routerLink="/terapia-selecionada/{{terapia.nome}}"  class="btn btn-lg btn-primary col-3">{{ terapia.nome }}</button>
+                <button routerLink="/terapia-selecionada/{{terapia.nome}}"
+                    class="btn btn-lg btn-primary col-3">{{ terapia.nome }}</button>
             </div>
         </ul>
     </div>
