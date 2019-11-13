@@ -23,7 +23,6 @@ const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'agendamentos', component: AgendamentoComponent },
   { path: 'terapias', component: TerapiasComponent },
-  //{ path: 'terapia-selecionada', component: TerapiaSelecionadaComponent },
   { path: 'login', component: LoginComponent },
   { path: 'gerenciar-funcionarios', component: GerenciarFuncionariosComponent },
   { path: 'cadastro', component: CadastroComponent },
@@ -38,7 +37,6 @@ const routes: Routes = [
   { path: 'formulario-pesquisa', component: FormularioPesquisaComponent }
   //{ path: '', component: },
 
-  //{ path: '', component: }
 ];
 
 @NgModule({

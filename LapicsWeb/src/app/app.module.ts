@@ -26,7 +26,6 @@ import { MeusAgendamentosComponent } from './terapeuta/meus-agendamentos/meus-ag
 import { TerapeutasComponent } from './funcionario/terapeutas/terapeutas.component';
 import { AjustarCalendarioComponent } from './funcionario/ajustar-calendario/ajustar-calendario.component';
 import { HttpClientModule } from '@angular/common/http';
-import { NgbdDropdownBasic } from './dropdown-basic/dropdown-basic';
 import { NgbdDropdownBasicModule } from './dropdown-basic/dropdwon-basic.module';
 //import { EventEmitterService } from './services/event/event-emitter.service';
 
