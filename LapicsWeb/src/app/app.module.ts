@@ -58,7 +58,7 @@ import { NgbdDropdownBasicModule } from './dropdown-basic/dropdwon-basic.module'
     ModalModule.forRoot(),  //Para os modals
     NgbModule,    //NgbModule é o module do ng bootstrap
     FormsModule,  //Importamos forms module para usar o two way data binding [(ngModel)]="" no HTML
-    HttpClientModule, //importamos HttpClient para usar o
+    HttpClientModule, //importamos HttpClient para usar http
     //EventEmitterService,  //importamos eventEmitter para chamar funções de outros componentes ex: comp2 chama função do comp1
     AppRoutingModule  //Para as rotas
   ],
