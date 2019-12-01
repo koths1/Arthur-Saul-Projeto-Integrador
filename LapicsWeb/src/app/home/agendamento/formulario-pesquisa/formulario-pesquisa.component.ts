@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { FormPesquisa } from 'src/app/model/formPesquisa';
 
 @Component({
   selector: 'app-formulario-pesquisa',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormularioPesquisaComponent implements OnInit {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
+  }
+
+  formulario: FormPesquisa = new FormPesquisa();
+
+  enviarFormulario() {
+
   }
 
 }

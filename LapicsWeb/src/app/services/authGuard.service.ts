@@ -10,7 +10,7 @@ export class AuthGuardService implements CanActivate {
 
   constructor(private auth: UserAuthService, private router: Router) { }
 
-  canActivate(): boolean | UrlTree {
+  canActivate(): boolean | UrlTree {    //Utilizamos este service para verificar se há um usuário logado.
     let value = this.auth.isAuthenticated()
     if (!value) {
       // initially was just redirecting here, but following the documention

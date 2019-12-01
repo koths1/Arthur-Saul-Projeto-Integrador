@@ -1,9 +1,12 @@
 //Classe feedback
-export class feedback{
+export class Feedback {
 
-    idFeedback: number;
-    PIC: string;
-    terapeuta: string;
+    idfeedback: number;
+    idagendamento: number;
+    pic: string;
+    comofoi: string;
+    relate: string;
+    impressao: string;
 
 
 }

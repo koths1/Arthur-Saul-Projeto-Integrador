@@ -7,21 +7,15 @@
     </div>
     <div class="py-5 text-center">
         <div class="container">
-            <div class="row"></div>
-            <label for="Email" class="col-sm-2">Email:{{usuario.email}}</label>
+            <p>Email:{{usuario.email}}</p>
+            <p>Senha:{{usuario.senha}}</p>
+            <p>Nome:{{usuario.nome}}</p>
+            <p>CPF:{{usuario.cpf}}</p>
         </div>
-        <div class="row">
-            <label for="Senha" class="col-sm-2">Senha:{{usuario.senha}}</label>
-        </div>
-        <div class="row">
-            <label for="Senha" class="col-sm-2">Nome:{{usuario.nome}}</label>
-        </div>
-        <div class="row">
-            <label for="Senha" class="col-sm-2">CPF:{{usuario.CPF}}</label>
-        </div>
-        <div>
-            <button type="button" class="btn btn-success btn-lg">Editar</button>
-        </div>
+    </div>
+
+    <div class="py-5 text-center">
+        <button (click)="editar()" type="button" class="btn btn-success btn-lg">Editar</button>
     </div>
 </body>
 

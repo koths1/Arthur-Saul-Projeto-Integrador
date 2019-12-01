@@ -11,7 +11,7 @@ export class EventEmitterService {
 
   constructor() { }
 
-  onHeaderComponentActivate() {
+  onHeaderComponentActivate() {   //Utilizamos o event emiter para ativar funções em outros componentes.
     this.invokeHeaderComponentFunction.emit();
   }
 

@@ -11,11 +11,15 @@ export class PerfilComponent implements OnInit {
 
   usuario: Usuario;
 
-  constructor( userAuth: UserAuthService) { 
+  constructor(userAuth: UserAuthService) {
     this.usuario = userAuth.usuarioAtual();
   }
 
   ngOnInit() {
+  }
+
+  editar(){
+    
   }
 
 }

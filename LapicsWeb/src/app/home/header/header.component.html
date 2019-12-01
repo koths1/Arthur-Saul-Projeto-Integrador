@@ -1,27 +1,37 @@
 <!--Topo+Imagem do LAPICS-->
 <div class="container-fluid text-center bg-topo">
-    <header class="container col-3" width="100px" height="100px">
-      <img src="../assets/Images/lapics small.jpg" class="img-thumbnail">
-    </header>
-    <div *ngIf="usuarioLogado == true" class="row">
-      <ngbd-dropdown-basic></ngbd-dropdown-basic>
-    </div>
-  </div>
-  <!--Botões-->
-  <div class="py-5 text-center">
-    <!--Deixa um espaço entre os componente acima e abaixo-->
-    <div class="container">
-      <!--Alinha os elementos que estiverem aqui dentro-->
-      <div class="row px-5">
-        <!--Cria uma linha, onde serão inseridos os botões-->
-        <!--Buttoncolor é um css personalizado para mudar a cor do botão-->
-        <!--Btn-block deixa todos os botões do mesmo tamanho-->
-        <div class="col"><a routerLink="/home" class="btn buttoncolor btn-block">Inicio</a></div>
-        <div *ngIf="usuarioLogado == true" class="col"><a routerLink="/meus-horarios" class="btn buttoncolor btn-block">Meus horários</a></div>
-        <div class="col"><a routerLink="/agendamentos" class="btn buttoncolor btn-block">Agendamentos</a></div>
-        <div class="col"><a routerLink="/terapias" class="btn buttoncolor btn-block">Terapias</a></div>
-        <div class="col"><a routerLink="/recomendar-terapia" class="btn buttoncolor btn-block">Recomendar terapia</a></div>
-        <div *ngIf="usuarioLogado == false" class="col"><a routerLink="/login" class="btn buttoncolor btn-block">Acessar</a></div>
+  <header class="container col-3" width="100px" height="100px">
+    <img src="../assets/Images/lapics small.jpg" class="img-thumbnail">
+  </header>
+</div>
+<!--Botões-->
+<div class="py-5 text-center">
+  <!--Deixa um espaço entre os componente acima e abaixo-->
+  <div class="container">
+    <!--Alinha os elementos que estiverem aqui dentro-->
+    <div class="row px-5">
+      <!--Cria uma linha, onde serão inseridos os botões-->
+      <!--Buttoncolor é um css personalizado para mudar a cor do botão-->
+      <!--Btn-block deixa todos os botões do mesmo tamanho-->
+      <div class="col"><a routerLink="/home" class="btn buttoncolor btn-block">Inicio</a></div>
+      <div *ngIf="usuarioLogado == true && tipoUsuario == 'Participante'" class="col"><a routerLink="/meus-horarios"
+          class="btn buttoncolor btn-block">Meus horários</a></div>
+      <div *ngIf="usuarioLogado == true && tipoUsuario == 'Terapeuta'" class="col"><a routerLink="/meus-agendamentos"
+          class="btn buttoncolor btn-block">Meus agendamentos</a></div>
+      <div *ngIf="usuarioLogado == true && tipoUsuario == 'Funcionario'" class="col"><a routerLink="/ajustar-calendario"
+          class="btn buttoncolor btn-block">Ajustar calendario</a></div>
+      <div *ngIf="usuarioLogado == true && tipoUsuario == 'Funcionario'" class="col"><a routerLink="/terapeutas"
+          class="btn buttoncolor btn-block">Terapeutas</a></div>
+      <div *ngIf="usuarioLogado == true && tipoUsuario == 'Administrador'" class="col"><a routerLink="/funcionarios"
+          class="btn buttoncolor btn-block">Funcionario</a></div>
+      <div *ngIf="usuarioLogado != true || tipoUsuario == 'Participante'" class="col"><a routerLink="/agendamentos"
+          class="btn buttoncolor btn-block">Agendamentos</a></div>
+      <div class="col"><a routerLink="/terapias" class="btn buttoncolor btn-block">Terapias</a></div>
+      <div class="col"><a routerLink="/recomendar-terapia" class="btn buttoncolor btn-block">Recomendar terapia</a>
       </div>
+      <div *ngIf="usuarioLogado == false" class="col"><a routerLink="/login"
+          class="btn buttoncolor btn-block">Acessar</a></div>
+      <div *ngIf="usuarioLogado != false" class="col"><ngbd-dropdown-usuario></ngbd-dropdown-usuario></div>
     </div>
   </div>
+</div>

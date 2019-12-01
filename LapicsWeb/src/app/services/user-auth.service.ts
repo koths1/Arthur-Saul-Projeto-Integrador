@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Usuario } from '../model/usuario';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +11,7 @@ export class UserAuthService {
   tipoUsuario: string;
   usuarioLogado: Usuario;
   users: Usuario[];
+  apiurl = 'https://lapicsweb-api.herokuapp.com';
 
   constructor(private http: HttpClient) { }
 
@@ -22,85 +22,31 @@ export class UserAuthService {
   isAuthenticated(): boolean {    //Função que verifica se há um usuário logado.
     return this.isLoggedIn;
   }
-  setLoggedOut(_value) {     //Função para fazer logout
-    this.isLoggedIn = _value;
+  logout() {     //Função para fazer logout
+    this.isLoggedIn = false;
     this.usuarioLogado = null;
   }
   usuarioAtual(): Usuario {    //Função que retorna o usuário "global"
     return this.usuarioLogado;
   }
 
+  tentaLogar(usuario: Usuario): Observable<Usuario[]> {    //Buscamos por um usuário a partir de email e senha
+    return this.http.get<Usuario[]>(this.apiurl + "/login/" + usuario.email + "/" + usuario.senha)
+  }
 
-  private endpoint = 'http://localhost:3000/';
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json'
+  login(usuario: Usuario): boolean {   //Caso exista email e senha estejam corretos, retornamos true e armazenamos 
+    this.tentaLogar(usuario).subscribe(res => {   //o usuário no service, para que o mesmo seja utilizado por qualquer classe que declare esse service.
+      this.users = res
+      console.log(res)
+      if (this.users.length != 0) {
+        this.usuarioLogado = this.users[0]
+        this.isLoggedIn = true
+        return true
+      }
     })
-  };
-
-  private extractData(res: Response) {
-    let body = res;
-    return body || {};
+    return false
   }
 
-  pegaUsuarios(): Observable<any> {
-    return this.http.get(this.endpoint + "users").pipe(
-      map(this.extractData));
-  }
 
-  private handleError<T>(operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-      console.error(error);
-
-      console.log('${operation} failed: ${error.message}');
-
-      return of(result as T);
-    };
-  }
-
-  /*private handleError<T> (operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-  
-      // TODO: send the error to remote logging infrastructure
-      console.error(error); // log to console instead
-  
-      // TODO: better job of transforming error for user consumption
-      this.log(`${operation} failed: ${error.message}`);
-  
-      // Let the app keep running by returning an empty result.
-      return of(result as T);
-    };
-  } */
-
-
-  /*pegaUsuarios(): void{
-    this.users = this.getUsers().subscribe();
-  }
-  
-  getUsers(): Observable<Usuario[]>{
-    //Alteramos para enviar os heroes por GET HTTP
-    // TODO: send the messa _after_fetching the heroes
-    return this.http.get<Usuario[]>(this.apiUrl+"/users").pipe(
-      tap(_ => this.log('Pegamos os usuários')),
-      catchError(this.handleError<Usuario[]>('users', [])));//retorna um JSON mas pelo uso de HERO[] retorna objetos do tipo hero
-  }
-  
-  private log(message: string){
-    console.log('${message}');
-  }
-  
-  private handleError<T> (operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-  
-      // TODO: send the error to remote logging infrastructure
-      console.error(error); // log to console instead
-  
-      // TODO: better job of transforming error for user consumption
-      this.log(`${operation} failed: ${error.message}`);
-  
-      // Let the app keep running by returning an empty result.
-      return of(result as T);
-    };
-  } */
 
 }

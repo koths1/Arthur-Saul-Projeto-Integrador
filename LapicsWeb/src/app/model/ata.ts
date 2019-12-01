@@ -1,10 +1,11 @@
-export class ata{
+export class Ata {
 
-    idAta: number;
-    dia: Date;
-    PIC: string;
-    terapia: string;
-    nroAta: number;
+    idata: number;
+    idagendamento: number;
+    idparticipante: number;
+    idterapeuta: number;
+    pic: string;
     observacoes: string;
+    nroata: number;
 
 }

@@ -4,6 +4,8 @@ import { Usuario } from 'src/app/model/usuario';
 import { Router } from '@angular/router';
 import { Mensagem } from 'src/app/model/mensagem';
 import { EventEmitterService } from 'src/app/services/event/event-emitter.service';
+import { ModalService } from 'src/app/services/modals/modal.service';
+import { MessageService } from 'src/app/services/message/message.service';
 
 @Component({
   selector: 'app-login',
@@ -12,54 +14,51 @@ import { EventEmitterService } from 'src/app/services/event/event-emitter.servic
 })
 export class LoginComponent implements OnInit {
 
-  usuariosAPI: any = [];  //Array de usuários vindos do banco, veio como tipo any
-  usuarios: Usuario[];  //Array de usuários que usamos para transformar o tipo any em tipo Usuario[]
-  usuarioLogin: Usuario = new Usuario();  //Usuário construído a partir das informações inseridas no HTML e pega pelo [(ngModel)]
+  usuario: Usuario = new Usuario();  //Usuário construído a partir das informações inseridas no HTML e pega pelo [(ngModel)]
+  usuarioAPI: Usuario[] = []
   mensagem: Mensagem = new Mensagem(); //Mensagem existe para caso o usuário insira informações de login inválidas
+  logou: boolean
 
   constructor(private userAuth: UserAuthService,
     private route: Router,
-    private eventEmitterService: EventEmitterService) { 
-      this.mensagem.conteudo= "null";
-    }
+    private eventEmitterService: EventEmitterService,
+    private modalService: ModalService,
+    private messageService: MessageService) {
+    this.mensagem.conteudo = "null";
+  }
 
   ngOnInit() {
   }
 
-  validaUsuario(usuario: Usuario){    //Essa função diz que o usuário está logado e define o usuário "global" do userAuth
+  validaUsuario(usuario: Usuario) {    //Essa função diz que o usuário está logado e define o usuário "global" do userAuth
     this.userAuth.setLoggedIn(true, usuario);
   }
 
-  ativaHeader(){    //Esta função executa o event emitter para podermos alterar o header
+  ativaHeader() {    //Esta função executa o event emitter para podermos alterar o header
     this.eventEmitterService.onHeaderComponentActivate();
+    //this.ativaHeader();
   }
-  
-  login(): void{  //Login
-    this.usuarios;
-    this.userAuth.pegaUsuarios().subscribe((data: {}) => {    //Pegando os usuários do banco
-      console.log(data);
-      this.usuariosAPI = data;
-      this.usuarios = this.usuariosAPI;
-      console.log(this.usuarios);
-      for(let i=0;i<this.usuarios.length;i++){    //Varrendo todo o array de usuários para validar o usuário tentando login
-        if(this.usuariosAPI[i].email === this.usuarioLogin.email && this.usuariosAPI[i].senha === this.usuarios[i].senha){
-          this.ativaHeader();
-          this.validaUsuario(this.usuariosAPI[i]);
-          if (this.usuariosAPI[i].tipo === "Participante") {
-            this.route.navigateByUrl("/meus-horarios");
-          } else if (this.usuariosAPI[i].tipo === "Terapeuta") {
-            this.route.navigateByUrl("/meus-agendamentos");
-          } else if (this.usuariosAPI[i].tipo === "Funcionario") {
-            this.route.navigateByUrl("/terapeutas");
-          } else if (this.usuariosAPI[i].tipo === "Administrador") {
-            this.route.navigateByUrl("/funcionarios");
-          }
-        }
-        else{
-          this.mensagem.conteudo = "E-mail ou senha inválido. Tente novamente.";
-        }
+
+  async login() {  //Login
+     this.userAuth.tentaLogar(this.usuario).subscribe(res =>{
+       this.usuarioAPI = res
+       if (this.usuarioAPI.length != 0) {
+        this.usuario = this.usuarioAPI[0]
+        this.userAuth.setLoggedIn(true, this.usuario)
+        this.ativaHeader()
+        this.messageService.setMessage("Bem vindo "+this.usuario.nome+" !!!")
+        this.modalService.openMessage()
+        setTimeout( ()=>{
+          this.route.navigateByUrl("/home")
+          }, 3000)
+        
+      } else {
+        this.messageService.setMessage("Email ou senha incorretos!!!")
+        this.modalService.openMessage()
       }
-    });
-  };
+     })
+    
+
+  }
 
 }

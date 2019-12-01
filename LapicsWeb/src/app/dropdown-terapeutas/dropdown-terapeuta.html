@@ -1,0 +1,10 @@
+
+<div class="row">
+    <div class="col">
+      <div ngbDropdown class="d-inline-block">
+        <button class="btn btn-primary" id="dropdownTerapeuta" ngbDropdownToggle>Terapeutas:</button>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+          <button *ngFor="let terapeuta of terapeutas" (click)="selecionaTerapeuta(terapeuta.idusuario)" ngbDropdownItem>{{terapeuta.nome}}</button>
+        </div>
+      </div>
+    </div>

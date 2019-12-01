@@ -10,4 +10,4 @@ import { NgbdCarouselBasic } from './carousel-basic.component';
   exports: [NgbdCarouselBasic],
   bootstrap: [NgbdCarouselBasic]
 })
-export class NgbdCarouselBasicModule {}
+export class NgbdCarouselBasicModule { }

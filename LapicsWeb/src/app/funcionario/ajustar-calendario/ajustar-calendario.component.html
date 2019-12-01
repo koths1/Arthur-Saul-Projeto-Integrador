@@ -14,7 +14,6 @@
         <table class="table table-responsive">
             <thead class="thead-dark">
                 <tr>
-                    <th scope="col">Turno</th>
                     <th scope="col">Segunda</th>
                     <th scope="col">Terça</th>
                     <th scope="col">Quarta</th>
@@ -24,8 +23,6 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>Manhã<br>
-                        (8h-13h20)</td>
                     <td>Reiki<br>
                         12h-13h20<br>
                         2 horários</td>
@@ -43,8 +40,6 @@
                         6 horários</td>
                 </tr>
                 <tr>
-                    <td>Tarde<br>
-                        (8h-13h)</td>
                     <td>Agendamentos(atual)</td>
                     <td>Barras de Access(quinzenal)|Barras de access/Reiki|Auriculoterapia<br>
                         13h30-17h20<br>
@@ -64,10 +59,59 @@
     </div>
     <div class="text-center">
         <div class="py-2 text-center">
-            <button type="button" routerLink="/formulario-pesquisa" class="btn btn-primary">Replicar calendario</button>
+            <button (click)="abreCriar()" type="button" class="btn btn-primary">Criar agendamento</button>
         </div>
         <div class="py-2 text-center">
             <button type="button" routerLink="/formulario-pesquisa" class="btn btn-primary">Novo calendario</button>
+        </div>
+        <div *ngIf="cadastrar != false">
+            <form>
+                <div class="py-5 text-center">
+                    <div class="container">
+                        <div class="form-group row">
+                            <label for="Terapeuta" class="col-sm-2 col-form-label">Terapeuta:</label>
+                            <div>
+                                <ngbd-dropdown-terapeuta></ngbd-dropdown-terapeuta>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="terapia" class="col-sm-2 col-form-label">Terapia:</label>
+                            <div class="col-sm-10">
+                                <input [(ngModel)]="novoAgendamento.terapia" name="terapia" type="text"
+                                    class="form-control" id="terapia" placeholder="senha">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="dia" class="col-sm-2 col-form-label">Dia:</label>
+                            <div class="col-sm-10">
+                                <input [(ngModel)]="novoAgendamento.dia" name="dia" type="text" class="form-control"
+                                    id="dia" placeholder="seu nome completo">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="hora" class="col-sm-2 col-form-label">Hora:</label>
+                            <div class="col-sm-10">
+                                <input [(ngModel)]="novoAgendamento.hora" name="hora" type="text" class="form-control"
+                                    id="hora" placeholder="senha">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="lugar" class="col-sm-2 col-form-label">Local:</label>
+                            <div class="col-sm-10">
+                                <input [(ngModel)]="novoAgendamento.lugar" name="lugar" type="text" class="form-control"
+                                    id="lugar" placeholder="senha">
+                            </div>
+                        </div>
+                        <div class="py-2">
+                            <button (click)="criarAgendamento()" type="button"
+                                class="btn btn-success btn-lg">Criar</button>
+                        </div>
+                        <div class="py-2">
+                            <button (click)="cancelar()" type="button" class="btn btn-danger btn-lg">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 </body>

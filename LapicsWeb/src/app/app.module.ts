@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 //Minhas importações
-import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TooltipModule } from 'ngx-bootstrap';
 import { ModalModule } from 'ngx-bootstrap';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -26,7 +25,20 @@ import { MeusAgendamentosComponent } from './terapeuta/meus-agendamentos/meus-ag
 import { TerapeutasComponent } from './funcionario/terapeutas/terapeutas.component';
 import { AjustarCalendarioComponent } from './funcionario/ajustar-calendario/ajustar-calendario.component';
 import { HttpClientModule } from '@angular/common/http';
-import { NgbdDropdownBasicModule } from './dropdown-basic/dropdwon-basic.module';
+import { NgbdModalBasic } from './modal/modal-basic';
+import { NgbdModalBasicModule } from './modal/modal-basic.module';
+import { NgbdModalMessage } from './modal/modal-message/modal-message';
+import { NgbdModalMessageModule } from './modal/modal-message/modal-message.module';
+import { NgbdModalAgendamento } from './modal/modal-agendamento/modal-agendamento';
+import { NgbdModalAgendar } from './modal/modal-agendar/modal-agendar';
+import { NgbdModalAjustar } from './modal/modal-ajustar/modal-ajustar';
+import { NgbdModalCadastrar } from './modal/modal-cadastrar/modal-cadastrar';
+import { NgbdModalAgendamentoModule } from './modal/modal-agendamento/modal-agendamento.module';
+import { NgbdModalAgendarModule } from './modal/modal-agendar/modal-agendar.module';
+import { NgbdModalAjustarModule } from './modal/modal-ajustar/modal-ajustar.module';
+import { NgbdModalCadastrarModule } from './modal/modal-cadastrar/modal-cadastrar.module';
+import { NgbdDropdownTerapeutaModule } from './dropdown-terapeutas/dropdown-terapeuta.module';
+import { NgbdDropdownUsuarioModule } from './dropdown-usuario/dropdown-usuario.module';
 //import { EventEmitterService } from './services/event/event-emitter.service';
 
 @NgModule({
@@ -52,17 +64,25 @@ import { NgbdDropdownBasicModule } from './dropdown-basic/dropdwon-basic.module'
   ],
   imports: [
     BrowserModule,
-    NgbdDropdownBasicModule,
-    BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
     ModalModule.forRoot(),  //Para os modals
     NgbModule,    //NgbModule é o module do ng bootstrap
+    NgbdModalBasicModule,
+    NgbdModalMessageModule,
+    NgbdModalAgendamentoModule,
+    NgbdModalAgendarModule,
+    NgbdModalAjustarModule,
+    NgbdModalCadastrarModule,
+    NgbdDropdownTerapeutaModule,
+    NgbdDropdownUsuarioModule,
     FormsModule,  //Importamos forms module para usar o two way data binding [(ngModel)]="" no HTML
     HttpClientModule, //importamos HttpClient para usar http
     //EventEmitterService,  //importamos eventEmitter para chamar funções de outros componentes ex: comp2 chama função do comp1
     AppRoutingModule  //Para as rotas
   ],
   providers: [],
+  entryComponents: [NgbdModalBasic, NgbdModalMessage, NgbdModalAgendamento, 
+    NgbdModalAgendar, NgbdModalAjustar, NgbdModalCadastrar],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

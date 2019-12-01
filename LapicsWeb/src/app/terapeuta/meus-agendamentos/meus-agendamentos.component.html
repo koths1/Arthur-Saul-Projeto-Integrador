@@ -17,18 +17,24 @@
                         <th scope="col">Terapia</th>
                         <th scope="col">Paciente</th>
                         <th scope="col">Local</th>
-                        <th scope="col">Ata e pós terapia</th>
+                        <th scope="col">Ata</th>
+                        <th scope="col">Pós terapia</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody *ngIf="agendamentosCount != 0">
                     <tr *ngFor="let agendamento of agendamentos">
                         <td>[(agendamento.data)]</td>
                         <td>[(agendamento.hora)]</td>
                         <td>[(agendamento.terapia)]</td>
-                        <td>[(agendamento.idParticipante)]</td>
                         <td>LAPICS UFSM<br>
                             Predio 20</td>
-                        <td><button class="btn btn-primary">Preencher</button></td>
+                        <td>[(agendamento.terapia)]</td>
+                        <td>[(agendamento.terapia)]</td>
+                    </tr>
+                </tbody>
+                <tbody *ngIf="agendamentosCount == 0">
+                    <tr>
+                        <td> Você ainda não possui agendamentos </td>
                     </tr>
                 </tbody>
             </table>

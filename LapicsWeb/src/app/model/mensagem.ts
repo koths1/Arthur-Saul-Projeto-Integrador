@@ -1,3 +1,3 @@
-export class Mensagem{
+export class Mensagem {
     conteudo: string;
 }

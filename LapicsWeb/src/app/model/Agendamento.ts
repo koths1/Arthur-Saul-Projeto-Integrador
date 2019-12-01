@@ -1,9 +1,13 @@
-export class Agendamento{
+export class Agendamento {
 
-    idAgendamento: number;
-    Terapia: string;
-    data: Date;
+    idagendamento: number;
+    idterapeuta: number;
+    idparticipante: number;
+    terapia: string;
+    dia: Date;
     hora: string;
-    idParticipante: number;
+    lugar: string;
+    disponivel: string;
+
 
 }

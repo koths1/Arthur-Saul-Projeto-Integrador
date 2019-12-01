@@ -7,7 +7,6 @@
             <p>Veja aqui os seus próximos horários</p>
         </div>
     </div>
-    <button routerLink="/perfil" class="btn btn-lg btn-primary"></button>
     <div class="row justify-content-center">
         <div class="col-auto">
             <table class="table table-responsive text-center">
@@ -19,13 +18,18 @@
                         <th scope="col">Local</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody *ngIf="agendamentosCount != 0">
                     <tr *ngFor="let agendamento of agendamentos">
                         <td>[(agendamento.data)]</td>
                         <td>[(agendamento.hora)]</td>
                         <td>[(agendamento.terapia)]</td>
                         <td>LAPICS UFSM<br>
                             Predio 20</td>
+                    </tr>
+                </tbody>
+                <tbody *ngIf="agendamentosCount == 0">
+                    <tr>
+                        <td> Você ainda não possui agendamentos </td>
                     </tr>
                 </tbody>
             </table>

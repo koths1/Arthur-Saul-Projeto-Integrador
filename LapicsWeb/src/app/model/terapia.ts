@@ -1,4 +1,4 @@
-export class Terapia{
+export class Terapia {
     nome: string;
     descricao: string;
 }

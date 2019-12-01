@@ -14,6 +14,7 @@ import { TerapeutasComponent } from './funcionario/terapeutas/terapeutas.compone
 import { AjustarCalendarioComponent } from './funcionario/ajustar-calendario/ajustar-calendario.component';
 import { MeusAgendamentosComponent } from './terapeuta/meus-agendamentos/meus-agendamentos.component';
 import { PerfilComponent } from './home/perfil/perfil.component';
+import { AuthGuardService } from './services/authGuard.service';
 
 
 //Path é uma string que combina com a URL do browser.
@@ -21,20 +22,20 @@ import { PerfilComponent } from './home/perfil/perfil.component';
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'agendamentos', component: AgendamentoComponent },
+  { path: 'agendamentos', canActivate: [AuthGuardService], component: AgendamentoComponent },
   { path: 'terapias', component: TerapiasComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'gerenciar-funcionarios', component: GerenciarFuncionariosComponent },
+  { path: 'gerenciar-funcionarios', canActivate: [AuthGuardService], component: GerenciarFuncionariosComponent },
   { path: 'cadastro', component: CadastroComponent },
   { path: 'recomendar-terapia', component: RecomendarTerapiaComponent },
   { path: 'terapia-selecionada/:terapia', component: TerapiaSelecionadaComponent },
-  { path: 'perfil', component: PerfilComponent },
-  { path: 'meus-horarios', component: MeusHorariosComponent },
-  { path: 'meus-agendamentos', component: MeusAgendamentosComponent },
+  { path: 'perfil', canActivate: [AuthGuardService], component: PerfilComponent },
+  { path: 'meus-horarios', canActivate: [AuthGuardService], component: MeusHorariosComponent },
+  { path: 'meus-agendamentos', canActivate: [AuthGuardService], component: MeusAgendamentosComponent },
   { path: 'terapeutas', component: TerapeutasComponent },
   { path: 'funcionarios', component: GerenciarFuncionariosComponent },
-  { path: 'ajustar-calendario', component: AjustarCalendarioComponent },
-  { path: 'formulario-pesquisa', component: FormularioPesquisaComponent }
+  { path: 'ajustar-calendario', canActivate: [AuthGuardService], component: AjustarCalendarioComponent },
+  { path: 'formulario-pesquisa', canActivate: [AuthGuardService], component: FormularioPesquisaComponent }
   //{ path: '', component: },
 
 ];

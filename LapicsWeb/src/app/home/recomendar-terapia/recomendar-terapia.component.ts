@@ -29,7 +29,6 @@ export class RecomendarTerapiaComponent implements OnInit {
   //Aqui a função que recomenda as terapias, as variáveis são preenchidas quando o usuário clica em um dos botões
   //Ao clicas no botão enviar, começa a função Recomenda
   Recomenda(): void {
-    console.log("Valor do Toque" + this.toque + " Valor do Som: " + this.som);
     this.terapias = this.terapiasService.getTerapias(); //Pega todas as terapias
     this.terapiasRec = this.terapias; //Faz uma copia delas
     if (this.toque === "N") { //Caso o usuário não esteja de acordo, entra aqui
