@@ -20,11 +20,10 @@
                 </thead>
                 <tbody *ngIf="agendamentosCount != 0">
                     <tr *ngFor="let agendamento of agendamentos">
-                        <td>[(agendamento.data)]</td>
-                        <td>[(agendamento.hora)]</td>
-                        <td>[(agendamento.terapia)]</td>
-                        <td>LAPICS UFSM<br>
-                            Predio 20</td>
+                        <td>{{agendamento.dia}}</td>
+                        <td>{{agendamento.hora}}</td>
+                        <td>{{agendamento.terapia}}</td>
+                        <td>{{agendamento.lugar}}</td>
                     </tr>
                 </tbody>
                 <tbody *ngIf="agendamentosCount == 0">

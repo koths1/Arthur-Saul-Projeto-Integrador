@@ -11,6 +11,7 @@ export class AgendamentoService {
   constructor(private http: HttpClient) { }
 
   agendamento: Agendamento;   //Agendamento que é armazenado no service, estará disponivel se for declarado e se o agendamento.service for declarado em um componente
+  agendamentosDia: Agendamento[] = []
   private apiurl = 'https://lapicsweb-api.herokuapp.com';   //Url da api qual fazemos as chamadas Http
 
   getAgendamentos(): Observable<Agendamento[]> {   //Puxa todos os agendamentos.
@@ -29,6 +30,10 @@ export class AgendamentoService {
     return this.http.get<Agendamento[]>(this.apiurl + '/agendamentosDisponiveis')
   }
 
+  getAgendamentosPorData(seg: Date,sex: Date): Observable<Agendamento[]> {    //Puxa os agendamentos no intervalo de tempo fornecido(da semana atual, segunda a sexta)
+    return this.http.get<Agendamento[]>(this.apiurl + '/agendamentosPorData/'+seg+"/"+sex)
+  }
+
   getAgendamentosParticipante(idparticipante: number): Observable<Agendamento[]> {   //Puxa os agendamentos de um participante a partir do dia de hoje.
     return this.http.get<Agendamento[]>(this.apiurl + '/agendamentosParticipante/' + idparticipante)
   }
@@ -38,6 +43,10 @@ export class AgendamentoService {
   }
 
   criarAgendamento(agendamento: Agendamento, id: number) {   //Cria um agendamento (Funcionario).
+    console.log("Agendamento")
+    console.log(agendamento)
+    console.log("idTerapeuta")
+    console.log(id)
     this.http.post(this.apiurl + '/addAgendamento/' + id, { "terapia": agendamento.terapia, "dia": agendamento.dia, "hora": agendamento.hora, "lugar": agendamento.lugar }).subscribe(res => { console.log(res) })
   }
 
@@ -46,7 +55,7 @@ export class AgendamentoService {
   }
 
   cancelarAgendamento(idAgendamento: number) {   //Cancela um agendamento por id (Participante).
-    this.http.put(this.apiurl + '/fazerAgendamento/' + idAgendamento, {}).subscribe(res => { console.log(res) })
+    this.http.put(this.apiurl + '/cancelarAgendamento/' + idAgendamento, {}).subscribe(res => { console.log(res) })
   }
 
   editarAgendamento(agendamento: Agendamento) {    //Editar um agendamento por id (Funcionario).
@@ -63,6 +72,18 @@ export class AgendamentoService {
 
   removeAgendamentoSelecionado() {   //Remove o agendamento armazenado no service.
     this.agendamento = null
+  }
+
+  setAgendamentosDia(agendamento: Agendamento[]) {    //Define um agendamento no service(para ser usado entre componente, praticamente um agendamento global)
+    this.agendamentosDia = agendamento
+  }
+
+  getAgendamentosDia() {    //Retorna o agendamento armazenado no service.
+    return this.agendamentosDia
+  }
+
+  removeAgendamentosDia() {   //Remove o agendamento armazenado no service.
+    this.agendamentosDia = null
   }
 
 }

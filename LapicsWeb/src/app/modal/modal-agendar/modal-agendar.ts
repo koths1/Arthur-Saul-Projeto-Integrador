@@ -6,6 +6,7 @@ import { AgendamentoService } from 'src/app/services/agendamento/agendamento.ser
 import { Usuario } from 'src/app/model/usuario';
 import { UsuarioService } from 'src/app/services/usuario/usuario.service';
 import { UserAuthService } from 'src/app/services/user-auth.service';
+import { Agendamento } from 'src/app/model/agendamento';
 
 @Component({
   selector: 'ngbd-modal-agendar',
@@ -13,9 +14,11 @@ import { UserAuthService } from 'src/app/services/user-auth.service';
 })
 export class NgbdModalAgendar {
 
+  agendamento: Agendamento
   mensagem: string
   usuario: Usuario
   agendou: boolean
+  naoAgendou: boolean
 
   constructor(private modalService: NgbModal,
     public activeModal: NgbActiveModal,
@@ -23,7 +26,10 @@ export class NgbdModalAgendar {
     private agendamentoService: AgendamentoService,
     private userAuth: UserAuthService) {
 
+    this.naoAgendou = false;  
+    this.agendou = false
     this.usuario = this.userAuth.usuarioAtual()
+    this.agendamento = this.agendamentoService.getAgendamentoSelecionado()
 
   }
 
@@ -40,10 +46,13 @@ export class NgbdModalAgendar {
   agendar(idAgendamento: number) {
     try {
       this.agendamentoService.fazerAgendamento(idAgendamento, this.usuario.idusuario)
-      this.mensagem = "Agendamento realizado com sucesso!!!"
+      this.agendou = true;      
     } catch (e) {
-      this.mensagem = "Agendamento falhou..."
+      this.naoAgendou = true;
     }
+    setTimeout(() => {
+      this.close()
+    }, 3000)
   }
 
 }

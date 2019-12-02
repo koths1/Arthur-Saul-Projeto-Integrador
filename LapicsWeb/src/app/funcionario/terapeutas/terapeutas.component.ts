@@ -46,6 +46,9 @@ export class TerapeutasComponent implements OnInit {
       this.usuarioService.cadastrarTerapeuta(this.usuario);
       this.messageService.setMessage("Terapeuta cadastrado com sucesso!!!")
       this.modalService.openMessage()
+      this.route.navigateByUrl('/', { skipLocationChange: true}).then(() =>{
+        this.route.navigateByUrl("/terapeutas")
+      })
       setTimeout( ()=>{
         this.route.navigateByUrl("/terapeutas")
         }, 5000)

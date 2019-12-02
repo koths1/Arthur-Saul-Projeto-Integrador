@@ -39,6 +39,8 @@ import { NgbdModalAjustarModule } from './modal/modal-ajustar/modal-ajustar.modu
 import { NgbdModalCadastrarModule } from './modal/modal-cadastrar/modal-cadastrar.module';
 import { NgbdDropdownTerapeutaModule } from './dropdown-terapeutas/dropdown-terapeuta.module';
 import { NgbdDropdownUsuarioModule } from './dropdown-usuario/dropdown-usuario.module';
+import { NgbdTimepickerBasicModule } from './timepicker-basic/timepicker-basic.module';
+import { NgbdDatepickerPopupModule } from './datepicker-popup/datepicker-popup.module';
 //import { EventEmitterService } from './services/event/event-emitter.service';
 
 @NgModule({
@@ -75,6 +77,8 @@ import { NgbdDropdownUsuarioModule } from './dropdown-usuario/dropdown-usuario.m
     NgbdModalCadastrarModule,
     NgbdDropdownTerapeutaModule,
     NgbdDropdownUsuarioModule,
+    NgbdDatepickerPopupModule,
+    NgbdTimepickerBasicModule,
     FormsModule,  //Importamos forms module para usar o two way data binding [(ngModel)]="" no HTML
     HttpClientModule, //importamos HttpClient para usar http
     //EventEmitterService,  //importamos eventEmitter para chamar funções de outros componentes ex: comp2 chama função do comp1

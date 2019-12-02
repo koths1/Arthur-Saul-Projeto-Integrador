@@ -5,8 +5,16 @@
   </button>
 </div>
 <div class="modal-body">
-  <div class="text-center" *ngIf="mensagem != null">
-    <h3>{{mensagem}}</h3>
+  <div class="text-center" *ngIf="agendamentosCount != 0">
+    <div *ngFor="let agendamento of agendamentosDisponiveis">
+      <div class="alert alert-success"><p>{{agendamento.terapia}} : {{agendamento.dia}} : {{agendamento.hora}}</p><button class="btn btn-outline-dark" (click)="agendar(agendamento.idagendamento)">Agendar</button></div>
+    </div>
+    <div *ngFor="let agendamento of agendamentosIndisponiveis">
+      <div class="alert alert-danger"><p>{{agendamento.terapia}} : {{agendamento.dia}} : {{agendamento.hora}}</p><button class="btn btn-outline-dark" (click)="agendar(agendamento.idagendamento)" disabled=true>Agendar</button></div>
+    </div>
+  </div>
+  <div class="alert alert-danger text-center" *ngIf="agendamentosCount == 0 || agendamentosCount == null">
+    <p>Não foram recebidos agendamentos!!!</p>
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Save click')">Ok</button>

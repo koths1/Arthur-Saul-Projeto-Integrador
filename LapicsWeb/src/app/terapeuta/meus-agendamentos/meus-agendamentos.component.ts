@@ -22,7 +22,9 @@ export class MeusAgendamentosComponent implements OnInit {
     private userAuth: UserAuthService,
     private agendamentoService: AgendamentoService) {
     this.usuario = userAuth.usuarioLogado
-    this.agendamentoService.getAgendamentosTerapeuta(this.usuario.idusuario)
+    this.agendamentoService.getAgendamentosTerapeuta(this.usuario.idusuario).subscribe( res =>{
+      this.agendamentos = res
+    })
   }
 
   ngOnInit() {

@@ -18,18 +18,17 @@
                         <th scope="col">Paciente</th>
                         <th scope="col">Local</th>
                         <th scope="col">Ata</th>
-                        <th scope="col">Pós terapia</th>
                     </tr>
                 </thead>
                 <tbody *ngIf="agendamentosCount != 0">
                     <tr *ngFor="let agendamento of agendamentos">
-                        <td>[(agendamento.data)]</td>
-                        <td>[(agendamento.hora)]</td>
-                        <td>[(agendamento.terapia)]</td>
-                        <td>LAPICS UFSM<br>
-                            Predio 20</td>
-                        <td>[(agendamento.terapia)]</td>
-                        <td>[(agendamento.terapia)]</td>
+                        <td>{{agendamento.dia}}</td>
+                        <td>{{agendamento.hora}}</td>
+                        <td>{{agendamento.terapia}}</td>
+                        <td>{{agendamento.idparticipante}}</td>
+                        <td>{{agendamento.lugar}}</td>
+                        <td>:3</td>
+                        
                     </tr>
                 </tbody>
                 <tbody *ngIf="agendamentosCount == 0">
