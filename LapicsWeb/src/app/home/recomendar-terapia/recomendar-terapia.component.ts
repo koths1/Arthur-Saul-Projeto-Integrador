@@ -20,7 +20,9 @@ export class RecomendarTerapiaComponent implements OnInit {
 
 
   constructor(private terapiasService: TerapiasService) { //Chamamos o terapiasService pois este tem a função de trazer a lista de terapias
-    this.terapias = null;
+    this.terapias = this.terapiasService.getTerapias()
+    console.log("As terapias do getterapias")
+    console.log(this.terapias)
   }
 
   ngOnInit() {
@@ -28,50 +30,63 @@ export class RecomendarTerapiaComponent implements OnInit {
 
   //Aqui a função que recomenda as terapias, as variáveis são preenchidas quando o usuário clica em um dos botões
   //Ao clicas no botão enviar, começa a função Recomenda
-  Recomenda(): void {
-    this.terapias = this.terapiasService.getTerapias(); //Pega todas as terapias
-    this.terapiasRec = this.terapias; //Faz uma copia delas
-    if (this.toque === "N") { //Caso o usuário não esteja de acordo, entra aqui
+  Recomenda() {
+    this.terapiasRec = this.terapias;
+    console.log(this.terapiasService.getTerapias())
+    console.log(this.terapias)
+    console.log(this.terapiasRec)
+    if (this.toque == "N") { //Caso o usuário não esteja de acordo, entra aqui
       for (let i = 0; i < this.terapiasRec.length; i++) { //For para varrer o array e encontrar as terapias que queremos remover
-        if (this.terapiasRec[i].nome === "Reiki" ||
-          this.terapiasRec[i].nome === "Barras de access" ||
-          this.terapiasRec[i].nome === "Thetahealing" ||
-          this.terapiasRec[i].nome === "Kinesiologia") {
+        if (this.terapiasRec[i].nome == "Reiki" ||
+          this.terapiasRec[i].nome == "Barras de access" ||
+          this.terapiasRec[i].nome == "Thetahealing" ||
+          this.terapiasRec[i].nome == "Kinesiologia") {
           this.terapiasRec.splice(i, 1);  //Ao encontrar o indice que queremos remover, splice remove
           i--;
         }
       }
     }
-    if (this.som === "N") {
+    if (this.som == "N") {
       for (let i = 0; i < this.terapiasRec.length; i++) {
-        if (this.terapiasRec[i].nome === "Reiki") {
+        if (this.terapiasRec[i].nome == "Reiki") {
           this.terapiasRec.splice(i, 1);
         }
       }
     }
-    if (this.luz === "N") {
+    if (this.luz == "N") {
       for (let i = 0; i < this.terapiasRec.length; i++) {
-        if (this.terapiasRec[i].nome === "Cromoterapia") {
+        if (this.terapiasRec[i].nome == "Cromoterapia") {
           this.terapiasRec.splice(i, 1);
         }
       }
     }
-    if (this.cheiro === "N") {
+    if (this.cheiro == "N") {
       for (let i = 0; i < this.terapiasRec.length; i++) {
-        if (this.terapiasRec[i].nome === "Aromaterapia") {
+        if (this.terapiasRec[i].nome == "Aromaterapia") {
           this.terapiasRec.splice(i, 1);
         }
       }
     }
-    if (this.maca === "N") {
+    if (this.maca == "N") {
       for (let i = 0; i < this.terapiasRec.length; i++) {
-        if (this.terapiasRec[i].nome === "Reiki" ||
-          this.terapiasRec[i].nome === "Barras de access" ||
-          this.terapiasRec[i].nome === "Kinesiologia") {
+        if (this.terapiasRec[i].nome == "Reiki" ||
+          this.terapiasRec[i].nome == "Barras de access" ||
+          this.terapiasRec[i].nome == "Kinesiologia") {
           this.terapiasRec.splice(i, 1);
           i--;
         }
       }
     }
+    console.log("Mostrando o valor de cada opção: ")
+    console.log("Toque: ")
+    console.log(this.toque)
+    console.log("Som: ")
+    console.log(this.som)
+    console.log("Luz: ")
+    console.log(this.luz)
+    console.log("Cheiro: ")
+    console.log(this.cheiro)
+    console.log("Maca: ")
+    console.log(this.maca)
   }
 }

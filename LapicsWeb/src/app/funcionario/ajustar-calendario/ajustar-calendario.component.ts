@@ -33,6 +33,8 @@ export class AjustarCalendarioComponent implements OnInit {
   cadastrar: boolean                  //Variavel utilizada para mostra/esconder a "seção" de cadastrar agendamento
   diaSelecionado: any                 //Variavel utilizada na validação do formulario de cadastrar agendamento
   terapeutaEscolhido: boolean                 //Variavel utilizada na validação do formulario de cadastrar agendamento
+  criou: boolean
+  naoCriou: boolean
 
 
   constructor(private modalService: ModalService,
@@ -43,6 +45,8 @@ export class AjustarCalendarioComponent implements OnInit {
     this.cadastrar = false;           //Dando valores iniciais para as variaveis de validação
     this.diaSelecionado = null;
     this.terapeutaEscolhido = false;
+    this.criou = false;
+    this.naoCriou = false;
 
     let curr = new Date
     let week = []
@@ -109,17 +113,21 @@ export class AjustarCalendarioComponent implements OnInit {
   }
 
   criarAgendamento() {   //Monta o agendamento com os dados ja inseridos no agendamento com os dados vindos do ngModel do html
-    console.log("Essa é a")
-    console.log()
     this.terapeutaSelecionado = this.usuarioService.getUsuarioSelecionado()
-    this.agendamentoService.criarAgendamento(this.novoAgendamento, this.terapeutaSelecionado.idusuario)
-    this.route.navigateByUrl('/', { skipLocationChange: true}).then(() =>{
-      this.route.navigateByUrl("/ajustar-calendario")
-    })
+    try{this.agendamentoService.criarAgendamento(this.novoAgendamento, this.terapeutaSelecionado.idusuario)
+      this.criou = true;
+    }catch(e){
+      this.naoCriou = true;
+    }
+    setTimeout(() => {
+      this.route.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+        this.route.navigateByUrl("/ajustar-calendario")
+      })
+    }, 5000)
   }
 
-  verificaSelecionado(){
-    if(this.novoAgendamento.idterapeuta != null){
+  verificaSelecionado() {
+    if (this.novoAgendamento.idterapeuta != null) {
       this.terapeutaEscolhido = true;
     }
   }

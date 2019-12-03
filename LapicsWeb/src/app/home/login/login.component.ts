@@ -43,6 +43,7 @@ export class LoginComponent implements OnInit {
      this.userAuth.tentaLogar(this.usuario).subscribe(res =>{
        this.usuarioAPI = res
        if (this.usuarioAPI.length != 0) {
+         
         this.usuario = this.usuarioAPI[0]
         this.userAuth.setLoggedIn(true, this.usuario)
         this.ativaHeader()

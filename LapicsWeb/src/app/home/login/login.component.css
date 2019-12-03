@@ -18,3 +18,7 @@
 .buttoncolor:hover{
     background-color: blueviolet;
 }
+
+.margemInputs{
+    margin-left: 300px;
+}

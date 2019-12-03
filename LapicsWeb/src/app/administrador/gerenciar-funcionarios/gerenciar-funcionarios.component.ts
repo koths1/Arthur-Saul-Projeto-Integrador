@@ -21,12 +21,12 @@ export class GerenciarFuncionariosComponent implements OnInit {
     private usuarioService: UsuarioService,
     private messageService: MessageService,
     private route: Router) {
-      this.cadastrar = false
-      this.usuarioService.getFuncionarios().subscribe(res => {
-        this.funcionarios = res
-        this.funcionariosCount = this.funcionarios.length
-      })
-     }
+    this.cadastrar = false
+    this.usuarioService.getFuncionarios().subscribe(res => {
+      this.funcionarios = res
+      this.funcionariosCount = this.funcionarios.length
+    })
+  }
 
   ngOnInit() {
   }
@@ -46,9 +46,11 @@ export class GerenciarFuncionariosComponent implements OnInit {
       this.usuarioService.cadastrarFuncionario(this.usuario);
       this.messageService.setMessage("Funcionario cadastrado com sucesso!!!")
       this.modalService.openMessage()
-      setTimeout( ()=>{
-        this.route.navigateByUrl("/funcionarios")
-        }, 5000)
+      setTimeout(() => {
+        this.route.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+          this.route.navigateByUrl("/funcionarios")
+        })
+      }, 5000)
 
     } catch (e) {
 
@@ -56,7 +58,7 @@ export class GerenciarFuncionariosComponent implements OnInit {
       this.modalService.openMessage()
 
     }
-    this.route.navigateByUrl('/', { skipLocationChange: true}).then(() =>{
+    this.route.navigateByUrl('/', { skipLocationChange: true }).then(() => {
       this.route.navigateByUrl("/funcionarios")
     })
   }

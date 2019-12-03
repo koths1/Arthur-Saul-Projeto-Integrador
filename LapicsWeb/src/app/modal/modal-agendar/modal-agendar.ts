@@ -7,6 +7,7 @@ import { Usuario } from 'src/app/model/usuario';
 import { UsuarioService } from 'src/app/services/usuario/usuario.service';
 import { UserAuthService } from 'src/app/services/user-auth.service';
 import { Agendamento } from 'src/app/model/agendamento';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'ngbd-modal-agendar',
@@ -24,7 +25,8 @@ export class NgbdModalAgendar {
     public activeModal: NgbActiveModal,
     private messageService: MessageService,
     private agendamentoService: AgendamentoService,
-    private userAuth: UserAuthService) {
+    private userAuth: UserAuthService,
+    private route: Router) {
 
     this.naoAgendou = false;  
     this.agendou = false
@@ -51,6 +53,9 @@ export class NgbdModalAgendar {
       this.naoAgendou = true;
     }
     setTimeout(() => {
+      this.route.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+        this.route.navigateByUrl("/agendamentos")
+      })
       this.close()
     }, 3000)
   }

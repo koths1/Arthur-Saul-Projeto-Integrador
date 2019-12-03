@@ -49,9 +49,11 @@ export class TerapeutasComponent implements OnInit {
       this.route.navigateByUrl('/', { skipLocationChange: true}).then(() =>{
         this.route.navigateByUrl("/terapeutas")
       })
-      setTimeout( ()=>{
-        this.route.navigateByUrl("/terapeutas")
-        }, 5000)
+      setTimeout(() => {
+        this.route.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+          this.route.navigateByUrl("/terapeutas")
+        })
+      }, 5000)
 
     } catch (e) {
 

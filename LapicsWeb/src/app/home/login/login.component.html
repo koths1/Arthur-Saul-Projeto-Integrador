@@ -8,9 +8,9 @@
     <form>
         <div class="py-5 text-center">
             <div class="container">
-                <div class="form-group row">
+                <div class="form-group row margemInputs">
                     <label for="Email" class="col-sm-2 col-form-label">Email:</label>
-                    <div class="col-sm-10">
+                    <div class="col-md-5 ">
                         <input [(ngModel)]="usuario.email" [ngModelOptions]="{standalone: true}" type="email"
                             class="form-control" id="Email" placeholder="exemplo@hotmail.com" required #email="ngModel">
                         <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
@@ -22,9 +22,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="form-group row">
+                <div class="form-group row margemInputs">
                     <label for="Senha" class="col-sm-2 col-form-label">Senha:</label>
-                    <div class="col-sm-10">
+                    <div class="col-md-5">
                         <input [(ngModel)]="usuario.senha" [ngModelOptions]="{standalone: true}" type="password"
                             class="form-control" id="Senha" placeholder="senha" required minlength="3" #senha="ngModel">
                             <div *ngIf="senha.invalid && (senha.dirty || senha.touched)" class="alert alert-danger">

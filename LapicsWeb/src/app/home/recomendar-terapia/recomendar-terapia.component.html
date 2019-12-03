@@ -16,66 +16,69 @@
             <div class="container">
                 <div class="form-group">
                     <label for="Email" class="col-sm-2 col-form-label">Toque:</label>
-                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                        <label class="btn btn-secondary  ">
-                            <input [(ngModel)]="toque" value="S" type="radio" name="opcao" id="F" autocomplete="off"
-                                checked> Não me importo com toque
-                        </label>
-                        <label class="btn btn-secondary">
-                            <input [(ngModel)]="toque " value="N" type="radio" name="opcao" id="M" autocomplete="off">
+                    <div class="text-center row" style="margin-left: 357px;">
+                        <div class="px-3">
+                            <input [(ngModel)]="toque" value="S" type="radio" name="opcaoToque" id="F"
+                                autocomplete="off" checked> Não me importo com toque
+                        </div>
+                        <div class="px-3">
+                            <input [(ngModel)]="toque " value="N" type="radio" name="opcaoToque" id="M"
+                                autocomplete="off">
                             Não quero ser tocado(a)
-                        </label>
+                        </div>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="Senha" class="col-sm-2 col-form-label">Som:</label>
-                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                        <label class="btn btn-secondary">
-                            <input [(ngModel)]="som" value="S" type="radio" name="opcao" id="F" checked> Não teho
+                    <label for="som" class="col-sm-2 col-form-label">Som:</label>
+                    <div class="text-center row" style="margin-left: 327px;">
+                        <div class="px-3">
+                            <input [(ngModel)]="som" value="S" type="radio" name="opcaoSom" id="F" checked> Não teho
                             problema com musica
-                        </label>
-                        <label class="btn btn-secondary">
-                            <input [(ngModel)]="som" value="" type="radio" name="opcao" id="M"> Não gosto de sons/musica
-                        </label>
+                        </div>
+                        <div class="px-3">
+                            <input [(ngModel)]="som" value="N" type="radio" name="opcaoSom" id="M"> Não gosto de
+                            sons/musica
+                        </div>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="Senha" class="col-sm-2 col-form-label">Luz:</label>
-                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                        <label class="btn btn-secondary">
-                            <input [(ngModel)]="luz" value="S" type="radio" name="opcao" id="F" checked> Não tenho
+                    <label for="luz" class="col-sm-2 col-form-label">Luz:</label>
+                    <div class="text-center row" style="margin-left: 331px;">
+                        <div class="px-3">
+                            <input [(ngModel)]="luz" value="S" type="radio" name="opcaoLuz" id="F" checked> Não tenho
                             problema com luzes
-                        </label>
-                        <label class="btn btn-secondary">
-                            <input [(ngModel)]="luz" value="N" type="radio" name="opcao" id="M"> Não gosto de luzes
+                        </div>
+                        <div class="px-3">
+                            <input [(ngModel)]="luz" value="N" type="radio" name="opcaoLuz" id="M"> Não gosto de luzes
                             coloridas
-                        </label>
+                        </div>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="Senha" class="col-sm-2 col-form-label">Cheiro:</label>
-                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                        <label class="btn btn-secondary">
-                            <input [(ngModel)]="cheiro" value="S" type="radio" name="opcao" id="F" checked> Não me
-                            importo
-                        </label>
-                        <label class="btn btn-secondary">
-                            <input [(ngModel)]="cheiro" value="N" type="radio" name="opcao" id="M"> Não gosto de
+                    <label for="cheiro" class="col-sm-2 col-form-label">Cheiro:</label>
+                    <div class="text-center row" style="margin-left: 267px;">
+                        <div class="px-3">
+                            <input [(ngModel)]="cheiro" value="S" type="radio" name="opcaoCheiro" id="F"> Não me
+                            importo com incensos e aromas
+                        </div>
+                        <div class="px-3">
+                            <input [(ngModel)]="cheiro" value="N" type="radio" name="opcaoCheiro" id="M"> Não gosto de
                             aromas/incensos
-                        </label>
+                        </div>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="Senha" class="col-sm-2 col-form-label">Maca:</label>
-                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                        <label class="btn btn-secondary">
-                            <input [(ngModel)]="maca" value="S" type="radio" name="opcao" id="F" checked> Não me importo
+                    <label for="maca" class="col-sm-2 col-form-label">Maca:</label>
+                    <div class="text-center row" style="margin-left: 300px;">
+                        <div class="px-3">
+                            <input [(ngModel)]="maca" value="S" type="radio" name="opcaoMaca" id="F"> Não me importo
                             em deitar na maca
-                        </label>
-                        <label class="btn btn-secondary">
-                            <input [(ngModel)]="maca" value="N" type="radio" name="opcao" id="M"> Não quero deitar na
+                        </div>
+                        <div class="px-3">
+                            <input [(ngModel)]="maca" value="N" type="radio" name="opcaoMaca" id="M"> Não quero deitar
+                            na
                             maca
-                        </label>
+                        </div>
                     </div>
                 </div>
                 <div class="py-4">

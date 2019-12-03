@@ -122,6 +122,16 @@
                         <div *ngIf="terapia.valid && hora.valid && lugar.valid && diaSelecionado != null" class="py-2">
                             <button  (click)="criarAgendamento()" type="button"
                                 class="btn btn-success btn-lg">Criar</button>
+                                <div *ngIf="criou == true" class="alert alert-success">
+                                    <div>
+                                        Agendamento criado com sucesso!!!
+                                    </div>
+                                </div>
+                                <div *ngIf="naoCriou == true" class="alert alert-danger">
+                                    <div>
+                                        Não foi possível criar o agendamento
+                                    </div>
+                                </div>
                                 <div class="alert alert-success">
                                     <div>
                                         Campos validados :)

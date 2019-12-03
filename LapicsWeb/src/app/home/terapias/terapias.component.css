@@ -1,1 +1,11 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
+
+.buttonTerapia{
+    color:white;
+    background: thistle;
+    transition-duration: 0,4s;
+}
+
+.buttonTerapia:hover{
+    background-color: violet;
+}
