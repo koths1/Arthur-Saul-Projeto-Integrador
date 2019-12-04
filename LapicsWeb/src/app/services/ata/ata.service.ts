@@ -26,11 +26,11 @@ export class AtaService {
   }
 
   createAta(ata: Ata) {    //Cria um registro de ata (Terapeuta)
-    this.http.post(this.apiurl + '/' + ata.idagendamento + "/" + ata.idparticipante + "/" + ata.idterapeuta, { "pic": ata.pic, "observacoes": ata.observacoes }).subscribe(res => { console.log(res) })
+    this.http.post(this.apiurl + '/addAta/' + ata.idagendamento + "/" + ata.idparticipante + "/" + ata.idterapeuta, { "pic": ata.pic, "observacoes": ata.observacoes }).subscribe(res => { console.log(res) })
   }
 
   editAta(ata: Ata) {    //Editar um registro de ata (Terapeuta).
-    this.http.post(this.apiurl + '/' + ata.idagendamento + "/" + ata.idparticipante + "/" + ata.idterapeuta, { "pic": ata.pic, "observacoes": ata.observacoes }).subscribe(res => { console.log(res) })
+    this.http.post(this.apiurl + '/editAta/' + ata.idagendamento + "/" + ata.idparticipante + "/" + ata.idterapeuta, { "pic": ata.pic, "observacoes": ata.observacoes }).subscribe(res => { console.log(res) })
   }
 
   setAtaSelecionada(ata: Ata) {    //Define a ata armazenada no service.

@@ -6,6 +6,8 @@ import { NgbdModalCadastrar } from 'src/app/modal/modal-cadastrar/modal-cadastra
 import { NgbdModalAgendar } from 'src/app/modal/modal-agendar/modal-agendar';
 import { NgbdModalAjustar } from 'src/app/modal/modal-ajustar/modal-ajustar';
 import { NgbdModalAgendamento } from 'src/app/modal/modal-agendamento/modal-agendamento';
+import { NgbdModalAta } from 'src/app/modal/modal-ata/modal-ata';
+import { NgbdModalFeedback } from 'src/app/modal/modal-feedback/modal-feedback';
 
 @Injectable({
   providedIn: 'root'
@@ -39,4 +41,13 @@ export class ModalService {
   openCadastrar(){
     const modalRef = this.modalCtrl.open(NgbdModalCadastrar);
   }
+
+  openAta(){
+    const modalRef = this.modalCtrl.open(NgbdModalAta);
+  }
+
+  openFeedback(){
+    const modalRef = this.modalCtrl.open(NgbdModalFeedback, {size: 'xl', scrollable: true});
+  }
+
 }

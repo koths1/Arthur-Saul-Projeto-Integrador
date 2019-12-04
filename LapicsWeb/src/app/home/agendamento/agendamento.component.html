@@ -22,32 +22,32 @@
             <tbody>
                 <tr>
                     <td>
-                        <div *ngIf="agSegundaCount != 0 && agSegundaDisponivel == false && agSegundaCount != null" class="alert alert-danger"><p *ngFor="let agendamento of agSegunda">{{agendamento.terapia}} : {{agendamento.dia}} : {{agendamento.hora}}</p></div>
-                        <div *ngIf="agSegundaCount != 0 && agSegundaDisponivel == true" class="alert alert-success"><p *ngFor="let agendamento of agSegunda">{{agendamento.terapia}} : {{agendamento.dia}} : {{agendamento.hora}}</p></div>
+                        <div *ngIf="agSegundaCount != 0 && agSegundaDisponivel == false && agSegundaCount != null" class="alert alert-danger"><p *ngFor="let agendamento of agSegunda">{{agendamento.terapia}} <br> {{agendamento.dia}} <br>hora: {{agendamento.hora}} <br>local: {{agendamento.lugar}}</p></div>
+                        <div *ngIf="agSegundaCount != 0 && agSegundaDisponivel == true" class="alert alert-success"><p *ngFor="let agendamento of agSegunda">{{agendamento.terapia}} <br> {{agendamento.dia}} <br>hora: {{agendamento.hora}} <br>local: {{agendamento.lugar}}</p></div>
                         <div *ngIf="agSegundaCount != 0 && agSegundaDisponivel == true" class="alert alert-success"><button (click)="segunda()" class="btn btn-outline-info">Ver</button></div>
                         <div *ngIf="agSegundaCount == 0 || agendamentosCount == 0 || agSegundaCount == null" class="alert alert-danger">Não há agendamentos cadastrados na segunda-feira</div>
                     </td>
                     <td>
-                        <div *ngIf="agTercaCount != 0 && agTercaDisponivel == false && agTercaCount != null" class="alert alert-danger"><p *ngFor="let agendamento of agTerca">{{agendamento.terapia}} : {{agendamento.dia}} : {{agendamento.hora}}</p></div>
-                        <div *ngIf="agTercaCount != 0 && agTercaDisponivel == true" class="alert alert-success"><p *ngFor="let agendamento of agTerca">{{agendamento.terapia}} : {{agendamento.dia}} : {{agendamento.hora}}</p></div>
+                        <div *ngIf="agTercaCount != 0 && agTercaDisponivel == false && agTercaCount != null" class="alert alert-danger"><p *ngFor="let agendamento of agTerca">{{agendamento.terapia}} <br> {{agendamento.dia}} <br>hora: {{agendamento.hora}} <br>local: {{agendamento.lugar}}</p></div>
+                        <div *ngIf="agTercaCount != 0 && agTercaDisponivel == true" class="alert alert-success"><p *ngFor="let agendamento of agTerca">{{agendamento.terapia}} <br> {{agendamento.dia}} <br>hora: {{agendamento.hora}} <br>local: {{agendamento.lugar}}</p></div>
                         <div *ngIf="agTercaCount != 0 && agTercaDisponivel == true" class="alert alert-success"><button (click)="terca()" class="btn btn-outline-info">Ver</button></div>
                         <div *ngIf="agTercaCount == 0 || agendamentosCount == 0 || agTercaCount == null" class="alert alert-danger">Não há agendamentos cadastrados na terça-feira</div>
                     </td>
                     <td>
-                        <div *ngIf="agQuartaCount != 0 && agQuartaDisponivel == false && agQuartaCount != null" class="alert alert-danger"><p *ngFor="let agendamento of agQuarta">{{agendamento.terapia}} : {{agendamento.dia}} : {{agendamento.hora}}</p></div>
-                        <div *ngIf="agQuartaCount != 0 && agQuartaDisponivel == true" class="alert alert-success"><p *ngFor="let agendamento of agQuarta">{{agendamento.terapia}} : {{agendamento.dia}} : {{agendamento.hora}}</p></div>
+                        <div *ngIf="agQuartaCount != 0 && agQuartaDisponivel == false && agQuartaCount != null" class="alert alert-danger"><p *ngFor="let agendamento of agQuarta">{{agendamento.terapia}} <br> {{agendamento.dia}} <br>hora: {{agendamento.hora}} <br>local: {{agendamento.lugar}}</p></div>
+                        <div *ngIf="agQuartaCount != 0 && agQuartaDisponivel == true" class="alert alert-success"><p *ngFor="let agendamento of agQuarta">{{agendamento.terapia}} <br> {{agendamento.dia}} <br>hora: {{agendamento.hora}} <br>local: {{agendamento.lugar}}</p></div>
                         <div *ngIf="agQuartaCount != 0 && agQuartaDisponivel == true" class="alert alert-success"><button (click)="quarta()" class="btn btn-outline-info">Ver</button></div>                        
                         <div *ngIf="agQuartaCount == 0 || agendamentosCount == 0 || agQuartaCount == null" class="alert alert-danger">Não há agendamentos cadastrados na quarta-feira</div>
                     </td>
                     <td>
-                        <div *ngIf="agQuintaCount != 0 && agQuintaDisponivel == false && agQuintaCount != null" class="alert alert-danger"><p *ngFor="let agendamento of agQuinta">{{agendamento.terapia}} : {{agendamento.dia}} : {{agendamento.hora}}</p></div>
-                        <div *ngIf="agQuintaCount != 0 && agQuintaDisponivel == true" class="alert alert-success"><p *ngFor="let agendamento of agQuinta">{{agendamento.terapia}} : {{agendamento.dia}} : {{agendamento.hora}}</p></div>
+                        <div *ngIf="agQuintaCount != 0 && agQuintaDisponivel == false && agQuintaCount != null" class="alert alert-danger"><p *ngFor="let agendamento of agQuinta">{{agendamento.terapia}} <br> {{agendamento.dia}} <br>hora: {{agendamento.hora}} <br>local: {{agendamento.lugar}}</p></div>
+                        <div *ngIf="agQuintaCount != 0 && agQuintaDisponivel == true" class="alert alert-success"><p *ngFor="let agendamento of agQuinta">{{agendamento.terapia}} <br> {{agendamento.dia}} <br>hora: {{agendamento.hora}} <br>local: {{agendamento.lugar}}</p></div>
                         <div *ngIf="agQuintaCount != 0 && agQuintaDisponivel == true" class="alert alert-success"><button (click)="quinta()" class="btn btn-outline-info">Ver</button></div>
                         <div *ngIf="agQuintaCount == 0 || agendamentosCount == 0 || agQuintaCount == null" class="alert alert-danger">Não há agendamentos cadastrados na quinta-feira</div>
                     </td>
                     <td>
-                        <div *ngIf="agSextaCount != 0 && agSextaDisponivel == false && agSextaCount != null" class="alert alert-danger"><p *ngFor="let agendamento of agSexta">{{agendamento.terapia}} : {{agendamento.dia}} : {{agendamento.hora}}</p></div>
-                        <div *ngIf="agSextaCount != 0 && agSextaDisponivel == true" class="alert alert-success"><p *ngFor="let agendamento of agSexta">{{agendamento.terapia}} : {{agendamento.dia}} : {{agendamento.hora}}</div>
+                        <div *ngIf="agSextaCount != 0 && agSextaDisponivel == false && agSextaCount != null" class="alert alert-danger"><p *ngFor="let agendamento of agSexta">{{agendamento.terapia}} <br> {{agendamento.dia}} <br>hora: {{agendamento.hora}} <br>local: {{agendamento.lugar}}</p></div>
+                        <div *ngIf="agSextaCount != 0 && agSextaDisponivel == true" class="alert alert-success"><p *ngFor="let agendamento of agSexta">{{agendamento.terapia}} <br> {{agendamento.dia}} <br>hora: {{agendamento.hora}} <br>local: {{agendamento.lugar}}</div>
                         <div *ngIf="agSextaCount != 0 && agSextaDisponivel == true" class="alert alert-success"><button (click)="sexta()" class="btn btn-outline-info">Ver</button></div>
                         <div *ngIf="agSextaCount == 0 || agendamentosCount == 0 || agSextaCount == null" class="alert alert-danger">Não há agendamentos cadastrados na sexta-feira</div>
                     </td>

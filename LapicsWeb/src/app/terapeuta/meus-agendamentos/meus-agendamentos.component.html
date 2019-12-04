@@ -27,7 +27,7 @@
                         <td>{{agendamento.terapia}}</td>
                         <td>{{agendamento.idparticipante}}</td>
                         <td>{{agendamento.lugar}}</td>
-                        <td>:3</td>
+                        <td><button class="btn btn-outline-info" (click)="verAta(agendamento.idagendamento)">Ver</button></td>
                         
                     </tr>
                 </tbody>
@@ -37,6 +37,7 @@
                     </tr>
                 </tbody>
             </table>
+            <ngx-spinner bdOpacity = 0.9 bdColor = "rgba(0,0,0,0)" size="medium" color = "#00ffc3" type="line-spin-clockwise-fade" [fullScreen] = "true"><p style="color: white">Obrigado...</p></ngx-spinner>
         </div>
     </div>
 </body>

@@ -4,6 +4,7 @@ import { UsuarioService } from 'src/app/services/usuario/usuario.service';
 import { ModalService } from 'src/app/services/modals/modal.service';
 import { MessageService } from 'src/app/services/message/message.service';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-terapeutas',
@@ -20,6 +21,7 @@ export class TerapeutasComponent implements OnInit {
   constructor(private usuarioService: UsuarioService,
     private modalService: ModalService,
     private messageService: MessageService,
+    private spinner: NgxSpinnerService,
     private route: Router) {
     this.cadastrar = false;
     this.usuarioService.getTerapeutas().subscribe(res => {
@@ -45,11 +47,10 @@ export class TerapeutasComponent implements OnInit {
 
       this.usuarioService.cadastrarTerapeuta(this.usuario);
       this.messageService.setMessage("Terapeuta cadastrado com sucesso!!!")
-      this.modalService.openMessage()
-      this.route.navigateByUrl('/', { skipLocationChange: true}).then(() =>{
-        this.route.navigateByUrl("/terapeutas")
-      })
+      this.modalService.openMessage()  
+      this.spinner.show()    
       setTimeout(() => {
+        this.spinner.hide()
         this.route.navigateByUrl('/', { skipLocationChange: true }).then(() => {
           this.route.navigateByUrl("/terapeutas")
         })

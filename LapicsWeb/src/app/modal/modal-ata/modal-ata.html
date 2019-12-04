@@ -1,0 +1,45 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-ajustar-title">Ata:</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form>
+    <div class="py-5 text-center">
+      <div class="container">
+          <h4>*Esta ata deve ser preenchida após o atendimento:</h4>
+        <div class="form-group row">
+          <label for="Terapeuta" class="col-sm-2 col-form-label">Terapeuta:</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="Terapeuta" placeholder="Terapeuta" value="{{terapeuta.nome}}" disabled=true>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="terapia" class="col-sm-2 col-form-label">Terapia:</label>
+          <div class="col-sm-10">
+            <input name="terapia" type="text" class="form-control" id="terapia" placeholder="Terapia" value="{{ata.pic}}" disabled=true> 
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="paciente" class="col-sm-2 col-form-label">Paciente:</label>
+          <div class="col-sm-10">
+            <input name="paciente" type="text" class="form-control" id="paciente" placeholder="Paciente" value="{{participante.nome}}" disabled=true>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="observacoes" class="col-sm-2 col-form-label">Observações:</label>
+          <div class="col-sm-10">
+            <input name="observacoes" type="text" class="form-control" id="observacoes" placeholder="Suas observações sobre o atendimento">
+          </div>
+        </div>
+        <div class="py-2">
+          <button (click)="registrarAta()" type="button" class="btn btn-success btn-lg">Criar</button>          
+        </div>
+        <div class="py-3">
+          <button (click)="close()" type="button" class="btn btn-danger btn-lg">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

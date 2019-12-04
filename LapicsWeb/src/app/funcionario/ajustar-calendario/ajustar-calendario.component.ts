@@ -6,6 +6,7 @@ import { AgendamentoService } from 'src/app/services/agendamento/agendamento.ser
 import { UsuarioService } from 'src/app/services/usuario/usuario.service';
 import { Semana } from 'src/app/model/semana';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-ajustar-calendario',
@@ -40,6 +41,7 @@ export class AjustarCalendarioComponent implements OnInit {
   constructor(private modalService: ModalService,
     private agendamentoService: AgendamentoService,
     private usuarioService: UsuarioService,
+    private spinner: NgxSpinnerService,
     private route: Router) {
 
     this.cadastrar = false;           //Dando valores iniciais para as variaveis de validação
@@ -116,10 +118,12 @@ export class AjustarCalendarioComponent implements OnInit {
     this.terapeutaSelecionado = this.usuarioService.getUsuarioSelecionado()
     try{this.agendamentoService.criarAgendamento(this.novoAgendamento, this.terapeutaSelecionado.idusuario)
       this.criou = true;
+      this.spinner.show()
     }catch(e){
       this.naoCriou = true;
     }
     setTimeout(() => {
+      this.spinner.hide()
       this.route.navigateByUrl('/', { skipLocationChange: true }).then(() => {
         this.route.navigateByUrl("/ajustar-calendario")
       })

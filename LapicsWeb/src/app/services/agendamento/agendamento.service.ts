@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Agendamento } from 'src/app/model/agendamento';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Usuario } from 'src/app/model/usuario';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,8 @@ export class AgendamentoService {
 
   agendamento: Agendamento;   //Agendamento que é armazenado no service, estará disponivel se for declarado e se o agendamento.service for declarado em um componente
   agendamentosDia: Agendamento[] = []
+  terapeuta: Usuario
+  participante: Usuario
   private apiurl = 'https://lapicsweb-api.herokuapp.com';   //Url da api qual fazemos as chamadas Http
 
   getAgendamentos(): Observable<Agendamento[]> {   //Puxa todos os agendamentos.
@@ -84,6 +87,30 @@ export class AgendamentoService {
 
   removeAgendamentosDia() {   //Remove o agendamento armazenado no service.
     this.agendamentosDia = null
+  }
+
+  setTerapeuta(terapeuta: Usuario){
+    this.terapeuta = terapeuta
+  }
+
+  getTerapeuta(): Usuario{
+    return this.terapeuta
+  }
+
+  removeTerapeuta(){
+    this.terapeuta = null
+  }
+
+  setParticipante(participante: Usuario){
+    this.participante = participante
+  }
+
+  getParticipante(): Usuario{
+    return this.participante
+  }
+
+  removeParticipante(){
+    this.participante = null;
   }
 
 }

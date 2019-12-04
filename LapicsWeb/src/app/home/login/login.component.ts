@@ -6,6 +6,7 @@ import { Mensagem } from 'src/app/model/mensagem';
 import { EventEmitterService } from 'src/app/services/event/event-emitter.service';
 import { ModalService } from 'src/app/services/modals/modal.service';
 import { MessageService } from 'src/app/services/message/message.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-login',
@@ -23,7 +24,8 @@ export class LoginComponent implements OnInit {
     private route: Router,
     private eventEmitterService: EventEmitterService,
     private modalService: ModalService,
-    private messageService: MessageService) {
+    private messageService: MessageService,
+    private spinner: NgxSpinnerService) {
     this.mensagem.conteudo = "null";
   }
 
@@ -40,25 +42,26 @@ export class LoginComponent implements OnInit {
   }
 
   async login() {  //Login
-     this.userAuth.tentaLogar(this.usuario).subscribe(res =>{
-       this.usuarioAPI = res
-       if (this.usuarioAPI.length != 0) {
-         
+    this.userAuth.tentaLogar(this.usuario).subscribe(res => {
+      this.usuarioAPI = res
+      if (this.usuarioAPI.length != 0) {
+        this.spinner.show()
         this.usuario = this.usuarioAPI[0]
         this.userAuth.setLoggedIn(true, this.usuario)
         this.ativaHeader()
-        this.messageService.setMessage("Bem vindo "+this.usuario.nome+" !!!")
+        this.messageService.setMessage("Bem vindo " + this.usuario.nome + " !!!")
         this.modalService.openMessage()
-        setTimeout( ()=>{
+        setTimeout(() => {
+          this.spinner.hide()
           this.route.navigateByUrl("/home")
-          }, 3000)
-        
+        }, 3000)
+
       } else {
         this.messageService.setMessage("Email ou senha incorretos!!!")
         this.modalService.openMessage()
       }
-     })
-    
+    })
+
 
   }
 
