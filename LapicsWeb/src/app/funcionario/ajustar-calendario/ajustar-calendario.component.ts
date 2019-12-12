@@ -27,8 +27,14 @@ export class AjustarCalendarioComponent implements OnInit {
   agQuartaCount: number               //Essa variavel contem agQuarta.length, utilizada para validação no html
   agQuintaCount: number               //Essa variavel contem agQuinta.length, utilizada para validação no html
   agSextaCount: number                //Essa variavel contem agSexta.length, utilizada para validação no html
+  agSegundaDisponivel: boolean
+  agTercaDisponivel: boolean
+  agQuartaDisponivel: boolean
+  agQuintaDisponivel: boolean
+  agSextaDisponivel: boolean
   semana: any[] = []                  //Esse array de qualquer serve para armazenar os dias da semana atual
   novoAgendamento: Agendamento = new Agendamento()  //O objeto que recebe os parametros do html para ser enviado para o service e cadastrado
+  agendamentoSelecionado: Agendamento = new Agendamento()
   terapeutaSelecionado: Usuario       //Terapeuta selecionado para ser cadastrado no agendamento
   terapeutas: Usuario[] = []          //Variavel que contem um array dos terapeutas
   cadastrar: boolean                  //Variavel utilizada para mostra/esconder a "seção" de cadastrar agendamento
@@ -49,6 +55,11 @@ export class AjustarCalendarioComponent implements OnInit {
     this.terapeutaEscolhido = false;
     this.criou = false;
     this.naoCriou = false;
+    this.agSegundaDisponivel = false
+    this.agTercaDisponivel = false
+    this.agQuartaDisponivel = false
+    this.agQuintaDisponivel = false
+    this.agSextaDisponivel = false
 
     let curr = new Date
     let week = []
@@ -70,25 +81,46 @@ export class AjustarCalendarioComponent implements OnInit {
           if (day == week[0]) {
             console.log("Entrou na segunda")
             this.agSegunda.push(this.agendamentos[i])
+            if (this.agendamentos[i].disponivel == "sim") {
+              this.agSegundaDisponivel = true
+            }
 
           } else if (day == week[1]) {
             console.log("Entrou na terça")
             this.agTerca.push(this.agendamentos[i])
+            if (this.agendamentos[i].disponivel == "sim") {
+              this.agTercaDisponivel = true
+            }
 
           } else if (day == week[2]) {
             console.log("Entrou na quarta")
             this.agQuarta.push(this.agendamentos[i])
+            if (this.agendamentos[i].disponivel == "sim") {
+              this.agQuartaDisponivel = true
+            }
 
           } else if (day == week[3]) {
             console.log("Entrou na quinta")
             this.agQuinta.push(this.agendamentos[i])
+            if (this.agendamentos[i].disponivel == "sim") {
+              this.agQuintaDisponivel = true
+            }
 
           } else if (day == week[4]) {
             console.log("Entrou na sexta")
             this.agSexta.push(this.agendamentos[i])
+            if (this.agendamentos[i].disponivel == "sim") {
+              this.agSextaDisponivel = true
+            }
 
           }
         }
+        //Após colocar os agendamentos de cada dia em seus arrays especificos vamos armazenar o .length de cada array para validação no html
+        this.agSegundaCount = this.agSegunda.length
+        this.agTercaCount = this.agTerca.length
+        this.agQuartaCount = this.agQuarta.length
+        this.agQuintaCount = this.agQuinta.length
+        this.agSextaCount = this.agSexta.length
       } else {
         console.log("Não tem agendamento ainda!!!")
       }
@@ -100,42 +132,23 @@ export class AjustarCalendarioComponent implements OnInit {
   }
 
   abreCriar() {    //Abre a seção de cadastrar agendamento
-    //this.modalService.openAjustar()
-    this.cadastrar = true;
+    this.modalService.openAjustar()
   }
 
-  cancelar() {     //Fecha a seção de cadastrar agendamento
-    this.cadastrar = false;
+  editar(id: number){
+    this.agendamentoSelecionado = this.agendamentos.find((i => i.idagendamento === id))
+    this.agendamentoService.setAgendamentoSelecionado(this.agendamentoSelecionado)
+    this.modalService.openEditarAgendamento()
   }
 
-  select(dia: any) {   //Seleciona o dia do agendamento
-    console.log(dia)
-    this.novoAgendamento.dia = dia;
-    this.diaSelecionado = dia;
-  }
-
-  criarAgendamento() {   //Monta o agendamento com os dados ja inseridos no agendamento com os dados vindos do ngModel do html
-    this.terapeutaSelecionado = this.usuarioService.getUsuarioSelecionado()
-    try{this.agendamentoService.criarAgendamento(this.novoAgendamento, this.terapeutaSelecionado.idusuario)
-      this.criou = true;
-      this.spinner.show()
-    }catch(e){
-      this.naoCriou = true;
-    }
+  excluir(id: number){
+    this.agendamentoSelecionado = this.agendamentos.find((i => i.idagendamento === id))
+    this.agendamentoService.deletarAgendamento(this.agendamentoSelecionado)
     setTimeout(() => {
-      this.spinner.hide()
       this.route.navigateByUrl('/', { skipLocationChange: true }).then(() => {
         this.route.navigateByUrl("/ajustar-calendario")
       })
-    }, 5000)
+    }, 3000)
   }
-
-  verificaSelecionado() {
-    if (this.novoAgendamento.idterapeuta != null) {
-      this.terapeutaEscolhido = true;
-    }
-  }
-
-
 
 }

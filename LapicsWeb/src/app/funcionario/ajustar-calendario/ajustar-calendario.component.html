@@ -24,24 +24,29 @@
             <tbody>
                     <tr>
                             <td>
-                            <div *ngIf="agSegundaCount != 0"><a (click)="segunda()"><p *ngFor="let agendamento of agSegunda">{{agendamento.terapia}} : {{agendamento.dia}} : {{agendamento.hora}}</p></a></div>
-                            <p *ngIf="agSegundaCount == 0 || agendamentosCount == 0">Não há agendamentos cadastrados na segunda-feira</p>
+                                <div *ngIf="agSegundaCount != 0 && agSegundaDisponivel == false && agSegundaCount != null" class="alert alert-danger"><p *ngFor="let agendamento of agSegunda">{{agendamento.terapia}} <br> {{agendamento.dia}} <br>hora: {{agendamento.hora}} <br>local: {{agendamento.lugar}}<br><br><br><button (click)="editar(agendamento.idagendamento)" class="btn btn-outline-info">Editar</button><br><br><button (click)="excluir(agendamento.idagendamento)" class="btn btn-outline-danger">Excluir</button></p></div>
+                                <div *ngIf="agSegundaCount != 0 && agSegundaDisponivel == true" class="alert alert-success"><p *ngFor="let agendamento of agSegunda">{{agendamento.terapia}} <br> {{agendamento.dia}} <br>hora: {{agendamento.hora}} <br>local: {{agendamento.lugar}}<br><br><br><button (click)="editar(agendamento.idagendamento)" class="btn btn-outline-info">Editar</button><br><br><button (click)="excluir(agendamento.idagendamento)" class="btn btn-outline-danger">Excluir</button></p></div>                                
+                                <div *ngIf="agSegundaCount == 0 || agendamentosCount == 0 || agSegundaCount == null" class="alert alert-danger">Não há agendamentos cadastrados na segunda-feira</div>
                             </td>
                             <td>
-                                <div *ngIf="agTercaCount != 0"><a (click)="terca()"><p *ngFor="let agendamento of agTerca">{{agendamento.terapia}} : {{agendamento.dia}} : {{agendamento.hora}}</p></a></div>
-                                <p *ngIf="agTercaCount == 0 || agendamentosCount == 0">Não há agendamentos cadastrados na terça-feira</p>
+                                <div *ngIf="agTercaCount != 0 && agTercaDisponivel == false && agTercaCount != null" class="alert alert-danger"><p *ngFor="let agendamento of agTerca">{{agendamento.terapia}} <br> {{agendamento.dia}} <br>hora: {{agendamento.hora}} <br>local: {{agendamento.lugar}}<br><br><br><button (click)="editar(agendamento.idagendamento)" class="btn btn-outline-info">Editar</button><br><br><button (click)="excluir(agendamento.idagendamento)" class="btn btn-outline-danger">Excluir</button></p></div>
+                        <div *ngIf="agTercaCount != 0 && agTercaDisponivel == true" class="alert alert-success"><p *ngFor="let agendamento of agTerca">{{agendamento.terapia}} <br> {{agendamento.dia}} <br>hora: {{agendamento.hora}} <br>local: {{agendamento.lugar}}<br><br><br><button (click)="editar(agendamento.idagendamento)" class="btn btn-outline-info">Editar</button><br><br><button (click)="excluir(agendamento.idagendamento)" class="btn btn-outline-danger">Excluir</button></p></div>
+                        <div *ngIf="agTercaCount == 0 || agendamentosCount == 0 || agTercaCount == null" class="alert alert-danger">Não há agendamentos cadastrados na terça-feira</div>
                             </td>
                             <td>
-                                <div *ngIf="agQuartaCount != 0"><a (click)="quarta()"><p *ngFor="let agendamento of agQuarta">{{agendamento.terapia}} : {{agendamento.dia}} : {{agendamento.hora}}</p></a></div>
-                                <p *ngIf="agQuartaCount == 0 || agendamentosCount == 0">Não há agendamentos cadastrados na quarta-feira</p>
+                                <div *ngIf="agQuartaCount != 0 && agQuartaDisponivel == false && agQuartaCount != null" class="alert alert-danger"><p *ngFor="let agendamento of agQuarta">{{agendamento.terapia}} <br> {{agendamento.dia}} <br>hora: {{agendamento.hora}} <br>local: {{agendamento.lugar}}<br><br><br><button (click)="editar(agendamento.idagendamento)" class="btn btn-outline-info">Editar</button><br><br><button (click)="excluir(agendamento.idagendamento)" class="btn btn-outline-danger">Excluir</button></p></div>
+                        <div *ngIf="agQuartaCount != 0 && agQuartaDisponivel == true" class="alert alert-success"><p *ngFor="let agendamento of agQuarta">{{agendamento.terapia}} <br> {{agendamento.dia}} <br>hora: {{agendamento.hora}} <br>local: {{agendamento.lugar}}<br><br><br><button (click)="editar(agendamento.idagendamento)" class="btn btn-outline-info">Editar</button><br><br><button (click)="excluir(agendamento.idagendamento)" class="btn btn-outline-danger">Excluir</button></p></div>
+                        <div *ngIf="agQuartaCount == 0 || agendamentosCount == 0 || agQuartaCount == null" class="alert alert-danger">Não há agendamentos cadastrados na quarta-feira</div>
                             </td>
                             <td>
-                                <div *ngIf="agQuintaCount != 0"><a (click)="quinta()"><p *ngFor="let agendamento of agQuinta">{{agendamento.terapia}} : {{agendamento.dia}} : {{agendamento.hora}}</p></a></div>
-                                <p *ngIf="agQuintaCount == 0 || agendamentosCount == 0">Não há agendamentos cadastrados na quinta-feira</p>
+                                <div *ngIf="agQuintaCount != 0 && agQuintaDisponivel == false && agQuintaCount != null" class="alert alert-danger"><p *ngFor="let agendamento of agQuinta">{{agendamento.terapia}} <br> {{agendamento.dia}} <br>hora: {{agendamento.hora}} <br>local: {{agendamento.lugar}}<br><br><br><button (click)="editar(agendamento.idagendamento)" class="btn btn-outline-info">Editar</button><br><br><button (click)="excluir(agendamento.idagendamento)" class="btn btn-outline-danger">Excluir</button></p></div>
+                        <div *ngIf="agQuintaCount != 0 && agQuintaDisponivel == true" class="alert alert-success"><p *ngFor="let agendamento of agQuinta">{{agendamento.terapia}} <br> {{agendamento.dia}} <br>hora: {{agendamento.hora}} <br>local: {{agendamento.lugar}}<br><br><br><button (click)="editar(agendamento.idagendamento)" class="btn btn-outline-info">Editar</button><br><br><button (click)="excluir(agendamento.idagendamento)" class="btn btn-outline-danger">Excluir</button></p></div>
+                        <div *ngIf="agQuintaCount == 0 || agendamentosCount == 0 || agQuintaCount == null" class="alert alert-danger">Não há agendamentos cadastrados na quinta-feira</div>
                             </td>
                             <td>
-                                <div *ngIf="agSextaCount != 0"><a (click)="sexta()"><p *ngFor="let agendamento of agSexta">{{agendamento.terapia}} : {{agendamento.dia}} : {{agendamento.hora}}</p></a></div>
-                                <p *ngIf="agSextaCount == 0 || agendamentosCount == 0">Não há agendamentos cadastrados na sexta-feira</p>
+                        <div *ngIf="agSextaCount != 0 && agSextaDisponivel == false && agSextaCount != null" class="alert alert-danger"><p *ngFor="let agendamento of agSexta">{{agendamento.terapia}} <br> {{agendamento.dia}} <br>hora: {{agendamento.hora}} <br>local: {{agendamento.lugar}}<br><br><br><button (click)="editar(agendamento.idagendamento)" class="btn btn-outline-info">Editar</button><br><br><button (click)="excluir(agendamento.idagendamento)" class="btn btn-outline-danger">Excluir</button></p></div>
+                        <div *ngIf="agSextaCount != 0 && agSextaDisponivel == true" class="alert alert-success"><p *ngFor="let agendamento of agSexta">{{agendamento.terapia}} <br> {{agendamento.dia}} <br>hora: {{agendamento.hora}} <br>local: {{agendamento.lugar}}<br><br><br><button (click)="editar(agendamento.idagendamento)" class="btn btn-outline-info">Editar</button><br><br><button (click)="excluir(agendamento.idagendamento)" class="btn btn-outline-danger">Excluir</button></p></div>
+                        <div *ngIf="agSextaCount == 0 || agendamentosCount == 0 || agSextaCount == null" class="alert alert-danger">Não há agendamentos cadastrados na sexta-feira</div>
                             </td>
                      </tr>
             </tbody>
@@ -55,105 +60,7 @@
             <button type="button" routerLink="/formulario-pesquisa" class="btn btn-primary">Novo calendario</button>
         </div>
         <div *ngIf="cadastrar != false">
-            <form>
-                <div class="py-5 text-center">
-                    <div class="container">
-                        <div class="form-group row">
-                            <label for="Terapeuta" class="col-sm-2 col-form-label">Terapeuta:</label>
-                            <div>
-                                <ngbd-dropdown-terapeuta></ngbd-dropdown-terapeuta>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="terapia" class="col-sm-2 col-form-label">Terapia:</label>
-                            <div class="col-sm-10">
-                                <input [(ngModel)]="novoAgendamento.terapia" name="terapia" type="text"
-                                    class="form-control" id="terapia" required placeholder="Terapia" #terapia="ngModel">
-                                    <div *ngIf="terapia.invalid && (terapia.dirty || terapia.touched)" class="alert alert-danger">
-
-                                        <div *ngIf="terapia.errors.required">
-                                            É necessário fornecer a terapia
-                                        </div>
             
-                                    </div>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="dia" class="col-sm-2 col-form-label">Dia:</label>
-                            <div class="col-sm-10">
-                                <button *ngFor="let dia of semana" class="btn btn-warning px-5" (click)="select(dia)">{{dia}}</button>
-                                <!--<input [(ngModel)]="diaa" type="text" ngbDatepicker #d="ngbDatepicker">
-                                <button (click)="d.toggle()">Toggle</button>-->
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="hora" class="col-sm-2 col-form-label">Hora:</label>
-                            <div class="col-sm-10">
-                                    <input [(ngModel)]="novoAgendamento.hora" name="hora" type="text"
-                                    class="form-control" id="terapia" required maxlength="5" placeholder="Hora do agendamento" #hora="ngModel">
-                                <!--<ngbd-timepicker-basic></ngbd-timepicker-basic>-->
-                                <div *ngIf="hora.invalid && (hora.dirty || hora.touched)" class="alert alert-danger">
-
-                                    <div *ngIf="hora.errors.required">
-                                        É necessário fornecer a hora
-                                    </div>
-
-                                    <div *ngIf="hora.errors.maxlength">
-                                        A hora não pode conter mais de 5 caracteres
-                                    </div>
-        
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="lugar" class="col-sm-2 col-form-label">Local:</label>
-                            <div class="col-sm-10">
-                                <input [(ngModel)]="novoAgendamento.lugar" name="lugar" type="text" class="form-control"
-                                    id="lugar" required placeholder="Local do agendamento" #lugar="ngModel">
-                                    <div *ngIf="lugar.invalid && (lugar.dirty || lugar.touched)" class="alert alert-danger">
-
-                                        <div *ngIf="lugar.errors.required">
-                                            É necessário fornecer o local
-                                        </div>
-            
-                                    </div>
-                            </div>
-                        </div>
-                        <ngx-spinner bdOpacity = 0.9 bdColor = "rgba(0,0,0,0)" size="medium" color = "#00ffc3" type="line-spin-clockwise-fade" [fullScreen] = "true"><p style="color: white">Carregando...</p></ngx-spinner>
-                        <div *ngIf="terapia.valid && hora.valid && lugar.valid && diaSelecionado != null" class="py-2">
-                            <button  (click)="criarAgendamento()" type="button"
-                                class="btn btn-success btn-lg">Criar</button>
-                                <div *ngIf="criou == true" class="alert alert-success">
-                                    <div>
-                                        Agendamento criado com sucesso!!!
-                                    </div>
-                                </div>
-                                <div *ngIf="naoCriou == true" class="alert alert-danger">
-                                    <div>
-                                        Não foi possível criar o agendamento
-                                    </div>
-                                </div>
-                                <div class="alert alert-success">
-                                    <div>
-                                        Campos validados :)
-                                    </div>
-                                </div>
-                        </div>
-                        <div *ngIf="terapia.invalid || hora.invalid || lugar.invalid || diaSelecionado == null" class="py-2">
-                            <button  (mouseenter)="verificaSelecionado()" type="button"
-                                class="btn btn-success btn-lg" disabled=true>Criar</button>
-                                <div class="alert alert-danger">
-                                    <div>
-                                        Preencha os campos...
-                                    </div>
-                                </div>
-                        </div>
-                        <div class="py-2">
-                            <button (click)="cancelar()" type="button" class="btn btn-danger btn-lg">Cancelar</button>
-                        </div>
-                    </div>
-                </div>
-            </form>
         </div>
     </div>
 </body>

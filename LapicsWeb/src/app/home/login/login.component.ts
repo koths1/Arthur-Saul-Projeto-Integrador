@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
         this.usuario = this.usuarioAPI[0]
         this.userAuth.setLoggedIn(true, this.usuario)
         this.ativaHeader()
-        this.messageService.setMessage("Bem vindo " + this.usuario.nome + " !!!")
+        this.messageService.setMessage("Bem-vindo " + this.usuario.nome + " !!!")
         this.modalService.openMessage()
         setTimeout(() => {
           this.spinner.hide()

@@ -14,6 +14,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 export class TerapeutasComponent implements OnInit {
 
   terapeutas: Usuario[] = []
+  terapeutaSelecionado: Usuario
   usuario: Usuario = new Usuario()
   terapeutasCount: number
   cadastrar: boolean
@@ -42,27 +43,20 @@ export class TerapeutasComponent implements OnInit {
   }
 
   cadastrarTerapeuta() {
-    //this.modalService.openCadastrar()
-    try {
+    this.modalService.openCadastrar()   
+  }
 
-      this.usuarioService.cadastrarTerapeuta(this.usuario);
-      this.messageService.setMessage("Terapeuta cadastrado com sucesso!!!")
-      this.modalService.openMessage()  
-      this.spinner.show()    
-      setTimeout(() => {
-        this.spinner.hide()
-        this.route.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-          this.route.navigateByUrl("/terapeutas")
-        })
-      }, 5000)
+  editar(id: number){
+    this.terapeutaSelecionado = this.terapeutas.find((i => i.idusuario === id));
+    console.log(this.terapeutaSelecionado);
+    this.usuarioService.setUsuarioSelecionado(this.terapeutaSelecionado)
+    this.modalService.openEditar()
+  }
 
-    } catch (e) {
-
-      this.messageService.setMessage("Falha ao cadastrar terapeuta...")
-      this.modalService.openMessage()
-
-    }
-
+  excluir(id: number){
+    this.terapeutaSelecionado = this.terapeutas.find((i => i.idusuario === id));
+    this.usuarioService.setUsuarioSelecionado(this.terapeutaSelecionado)
+    this.modalService.openConfirmar()
   }
 
 }

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Usuario } from 'src/app/model/usuario';
 import { Observable } from 'rxjs';
 
@@ -50,7 +50,7 @@ export class UsuarioService {
   }
 
   deletarUsuario(usuario: Usuario) { //Removendo o acesso de um usuário por id utilizando http
-    this.http.put(this.apiurl + '/deleteUsuario/' + usuario.idusuario, { 'email': usuario.email, 'senha': usuario.senha, 'nome': usuario.nome, 'CPF': usuario.cpf }).subscribe(res => console.log(res))
+    this.http.put(this.apiurl + '/deleteUsuario/' + usuario.idusuario, { }).subscribe(res => console.log(res))
   }
 
   setUsuarioSelecionado(usuario: Usuario) {    //Define um usuário armazenado no service.

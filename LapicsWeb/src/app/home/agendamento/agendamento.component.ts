@@ -47,6 +47,7 @@ export class AgendamentoComponent implements OnInit {
     private usuarioService: UsuarioService,
     private route: Router,
     private ngbdService: NgbModal) {
+      
     this.usuario = this.userAuth.usuarioAtual()
     this.escolheu = false
     this.agSegundaDisponivel = false
@@ -55,12 +56,12 @@ export class AgendamentoComponent implements OnInit {
     this.agQuintaDisponivel = false
     this.agSextaDisponivel = false
     //Problemas com o preenchimento do formulario, por isso essa parte está comentada
-    /*this.formularioService.getPreencheu(this.usuario.idusuario).subscribe(res =>{
+    this.formularioService.getPreencheu(this.usuario.idusuario).subscribe(res =>{
       this.formulario = res;
       if(this.formulario.length == 0){
         this.route.navigateByUrl("/formulario-pesquisa")
       }
-    })*/
+    })
     let curr = new Date
     let week = []
 

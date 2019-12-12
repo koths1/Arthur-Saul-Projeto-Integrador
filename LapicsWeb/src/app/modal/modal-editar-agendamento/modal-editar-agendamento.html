@@ -1,0 +1,56 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-ajustar-title">Editar agendamento:</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form>
+    <div class="py-5 text-center">
+      <div class="container">
+        <div class="form-group row">
+          <label for="terapia" class="col-sm-2 col-form-label">Terapia:</label>
+          <div class="col-sm-10">
+            <input name="terapia" type="text" class="form-control" id="terapia" required placeholder="Terapia" value="{{agendamento.terapia}}">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="hora" class="col-sm-2 col-form-label">Hora:</label>
+          <div class="col-sm-10">
+            <input name="hora" type="text" class="form-control" id="hora" required maxlength="5"
+              placeholder="Hora do agendamento" value="{{agendamento.hora}}">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="lugar" class="col-sm-2 col-form-label">Local:</label>
+          <div class="col-sm-10">
+            <input name="lugar" type="text" class="form-control" id="lugar" required placeholder="Local do agendamento" value="{{agendamento.lugar}}">
+          </div>
+        </div>
+        <button (click)="editarAgendamento()" type="button" class="btn btn-success btn-lg">Editar</button>
+        <div *ngIf="editou == true" class="alert alert-success">
+          <div>
+            {{mensagem}}
+          </div>
+        </div>
+        <div *ngIf="naoEditou == true" class="alert alert-danger">
+          <div>
+            {{mensagem}}
+          </div>
+        </div>
+        <!-- <div *ngIf="terapia.invalid || hora.invalid || lugar.invalid || diaSelecionado == null" class="py-2">
+                    <button  (mouseenter)="verificaSelecionado()" type="button"
+                        class="btn btn-success btn-lg" disabled=true>Criar</button>
+                        <div class="alert alert-danger">
+                            <div>
+                                Preencha os campos...
+                            </div>
+                        </div>
+                </div> -->
+        <div class="py-2">
+          <button (click)="close()" type="button" class="btn btn-danger btn-lg">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

@@ -62,7 +62,11 @@ export class AgendamentoService {
   }
 
   editarAgendamento(agendamento: Agendamento) {    //Editar um agendamento por id (Funcionario).
-    this.http.put(this.apiurl + '/editAgendamento/' + agendamento.idagendamento, { "terapia": agendamento.terapia, "dia": agendamento.dia, "hora": agendamento.hora, "lugar": agendamento.lugar }).subscribe(res => { console.log(res) })
+    this.http.put(this.apiurl + '/editAgendamento/' + agendamento.idagendamento+"/"+ agendamento.idterapeuta, { "terapia": agendamento.terapia, "dia": agendamento.dia, "hora": agendamento.hora, "lugar": agendamento.lugar, "disponivel": agendamento.disponivel }).subscribe(res => { console.log(res) })
+  }
+
+  deletarAgendamento(agendamento: Agendamento) {    //Editar um agendamento por id (Funcionario).
+    this.http.delete(this.apiurl + '/deleteAgendamento/' + agendamento.idagendamento, { }).subscribe(res => { console.log(res) })
   }
 
   setAgendamentoSelecionado(agendamento: Agendamento) {    //Define um agendamento no service(para ser usado entre componente, praticamente um agendamento global)

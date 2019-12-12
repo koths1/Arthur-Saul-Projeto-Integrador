@@ -1,5 +1,5 @@
 <div class="modal-header">
-  <h4 class="modal-title" id="modal-cadastrar-title">Cadastro:</h4>
+  <h4 class="modal-title" id="modal-cadastrar-title">Editar:</h4>
   <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
     <span aria-hidden="true">&times;</span>
   </button>
@@ -12,7 +12,7 @@
             <label for="email" class="col-sm-2 col-form-label">Email:</label>
             <div class="col-sm-10">
               <input name="email" type="email" class="form-control" id="email"
-                placeholder="exemplo@hotmail.com" required maxlength="50">
+                placeholder="exemplo@hotmail.com" required maxlength="50" value="{{usuario.email}}">
 
               <!--<div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
 
@@ -34,7 +34,7 @@
             <label for="Senha" class="col-sm-2 col-form-label">Senha:</label>
             <div class="col-sm-10">
               <input name="senha" type="password" class="form-control" id="senha"
-                placeholder="senha" required minlength="3" maxlength="20">
+                placeholder="senha" required minlength="3" maxlength="20" value="{{usuario.senha}}">
               <!--<div *ngIf="senha.invalid && (senha.dirty || senha.touched)" class="alert alert-danger">
 
                 <div *ngIf="senha.errors.required">
@@ -55,7 +55,7 @@
             <label for="Nome" class="col-sm-2 col-form-label">Nome:</label>
             <div class="col-sm-10">
               <input name="nome" type="text" class="form-control" id="nome"
-                placeholder="Nome completo" required minlength="3" maxlength="50">
+                placeholder="Nome completo" required minlength="3" maxlength="50" value="{{usuario.nome}}">
               <!--<div *ngIf="nome.invalid && (nome.dirty || nome.touched)" class="alert alert-danger">
 
                 <div *ngIf="nome.errors.required">
@@ -73,7 +73,7 @@
             <label for="CPF" class="col-sm-2 col-form-label">CPF:</label>
             <div class="col-sm-10">
               <input name="cpf" type="text" class="form-control" id="cpf" placeholder="CPF" required minlength="3"
-                maxlength="15">
+                maxlength="15" value="{{usuario.cpf}}">
               <!--<div *ngIf="cpf.invalid && (cpf.dirty || cpf.touched)" class="alert alert-danger">
 
                 <div *ngIf="cpf.errors.required">
@@ -98,18 +98,18 @@
           *ngIf="email.valid && senha.valid && nome.valid && cpf.valid" -->
 
             <div >
-              <button (click)="cadastrar()" type="button" class="btn btn-success btn-lg">Cadastrar</button>
+              <button (click)="editar()" type="button" class="btn btn-success btn-lg">Editar</button>
 
-              <div *ngIf="cadastrou == true" class="text-center alert alert-success">
+              <div *ngIf="editou == true" class="text-center alert alert-success">
                   <div>
                     {{mensagem}}
-                  </div>>
+                  </div>
               </div>
 
-              <div *ngIf="naoCadastrou == true" class="text-center alert alert-danger">
+              <div *ngIf="naoEditou == true" class="text-center alert alert-danger">
                   <div>
                     {{mensagem}}
-                  </div>>
+                  </div>
               </div>
 
               <!--<div class="alert alert-success">
@@ -127,7 +127,3 @@
       </div>
     </form>
   </div>
-  
-<div class="modal-footer">
-  <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Save click')">Ok</button>
-</div>

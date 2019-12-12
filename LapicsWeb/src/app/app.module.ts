@@ -25,8 +25,6 @@ import { MeusAgendamentosComponent } from './terapeuta/meus-agendamentos/meus-ag
 import { TerapeutasComponent } from './funcionario/terapeutas/terapeutas.component';
 import { AjustarCalendarioComponent } from './funcionario/ajustar-calendario/ajustar-calendario.component';
 import { HttpClientModule } from '@angular/common/http';
-import { NgbdModalBasic } from './modal/modal-basic';
-import { NgbdModalBasicModule } from './modal/modal-basic.module';
 import { NgbdModalMessage } from './modal/modal-message/modal-message';
 import { NgbdModalMessageModule } from './modal/modal-message/modal-message.module';
 import { NgbdModalAgendamento } from './modal/modal-agendamento/modal-agendamento';
@@ -46,6 +44,16 @@ import { NgbdModalAtaModule } from './modal/modal-ata/modal-ata.module';
 import { NgbdModalAta } from './modal/modal-ata/modal-ata';
 import { NgbdModalFeedbackModule } from './modal/modal-feedback/modal-feedback.module';
 import { NgbdModalFeedback } from './modal/modal-feedback/modal-feedback';
+import { NgbdModalEditar } from './modal/modal-editar/modal-editar';
+import { NgbdModalEditarModule } from './modal/modal-editar/modal-editar.module';
+import { NgbdModalConfirmar } from './modal/modal-confirmar/modal-confirmar';
+import { NgbdModalConfirmarModule } from './modal/modal-confirmar/modal-confirmar.module';
+import { NgbdModalEditarAgendamentoModule } from './modal/modal-editar-agendamento/modal-editar-agendamento.module';
+import { NgbdModalEditarAgendamento } from './modal/modal-editar-agendamento/modal-editar-agendamento';
+import { NgbdModalEditarAta } from './modal/modal-editar-ata/modal-editar-ata';
+import { NgbdModalEditarFeedback } from './modal/modal-editar-feedback/modal-editar-feedback';
+import { NgbdModalEditarAtaModule } from './modal/modal-editar-ata/modal-editar-ata.module';
+import { NgbdModalEditarFeedbackModule } from './modal/modal-editar-feedback/modal-editar-feedback.module';
 //import { EventEmitterService } from './services/event/event-emitter.service';
 
 @NgModule({
@@ -74,7 +82,6 @@ import { NgbdModalFeedback } from './modal/modal-feedback/modal-feedback';
     TooltipModule.forRoot(),
     ModalModule.forRoot(),  //Para os modals
     NgbModule,    //NgbModule é o module do ng bootstrap
-    NgbdModalBasicModule,
     NgbdModalMessageModule,
     NgbdModalAgendamentoModule,
     NgbdModalAgendarModule,
@@ -82,6 +89,11 @@ import { NgbdModalFeedback } from './modal/modal-feedback/modal-feedback';
     NgbdModalCadastrarModule,
     NgbdModalAtaModule,
     NgbdModalFeedbackModule,
+    NgbdModalEditarModule,
+    NgbdModalConfirmarModule,
+    NgbdModalEditarAgendamentoModule,
+    NgbdModalEditarAtaModule,
+    NgbdModalEditarFeedbackModule,
     NgbdDropdownTerapeutaModule,
     NgbdDropdownUsuarioModule,
     NgbdDatepickerPopupModule,
@@ -93,8 +105,10 @@ import { NgbdModalFeedback } from './modal/modal-feedback/modal-feedback';
     AppRoutingModule  //Para as rotas
   ],
   providers: [],
-  entryComponents: [NgbdModalBasic, NgbdModalMessage, NgbdModalAgendamento, 
-    NgbdModalAgendar, NgbdModalAjustar, NgbdModalCadastrar, NgbdModalAta, NgbdModalFeedback],
+  entryComponents: [ NgbdModalMessage, NgbdModalAgendamento, 
+    NgbdModalAgendar, NgbdModalAjustar, NgbdModalCadastrar, NgbdModalAta, NgbdModalFeedback, 
+    NgbdModalEditar, NgbdModalConfirmar, NgbdModalEditarAgendamento, NgbdModalEditarAta, 
+    NgbdModalEditarFeedback],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -62,12 +62,8 @@ export class MeusAgendamentosComponent implements OnInit {
     this.ataService.getAtaByAgendamento(id).subscribe( res => {
       this.ataApi = res
       if(this.ataApi.length != 0){
-        this.spinner.show()
-        this.messageService.setMessage("A ata para este agendamento já foi preenchida. :)")
-        this.modalService.openMessage()
-        setTimeout(() => {
-          this.spinner.hide()
-        }, 3000)
+        this.ataService.setAtaSelecionada(this.ataApi[0])
+        this.modalService.openEditarAta()
       }else if(this.ataApi.length == 0){
         this.modalService.openAta()        
       }

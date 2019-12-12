@@ -30,7 +30,11 @@ export class AtaService {
   }
 
   editAta(ata: Ata) {    //Editar um registro de ata (Terapeuta).
-    this.http.post(this.apiurl + '/editAta/' + ata.idagendamento + "/" + ata.idparticipante + "/" + ata.idterapeuta, { "pic": ata.pic, "observacoes": ata.observacoes }).subscribe(res => { console.log(res) })
+    this.http.put(this.apiurl + '/editAta/' + ata.idata , { "pic": ata.pic, "observacoes": ata.observacoes }).subscribe(res => { console.log(res) })
+  }
+
+  deleteAta(ata: Ata) {    //Editar um registro de ata (Terapeuta).
+    this.http.post(this.apiurl + '/deleteAta/' + ata.idagendamento, { }).subscribe(res => { console.log(res) })
   }
 
   setAtaSelecionada(ata: Ata) {    //Define a ata armazenada no service.

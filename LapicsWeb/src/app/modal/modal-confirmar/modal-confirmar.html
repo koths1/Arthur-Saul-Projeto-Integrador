@@ -1,0 +1,40 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-cadastrar-title">Excluir:</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+      <div class="py-5 text-center">
+        <div class="container">
+          <div class="form-group row">
+            <div>
+            <h3>Tem certeza que deseja excluir esse usuário?</h3>
+            <p>Lembre-se que excluir um usuário trata-se de remover o acesso do mesmo.</p>
+          </div>
+          <div class="py-5">
+            <div>
+
+              <button (click)="excluir()" style="margin-left: 130px" type="button" class="btn btn-success btn-lg">Excluir</button>
+
+              <div *ngIf="excluiu == true" class="text-center alert alert-success">
+                  <div>
+                    {{mensagem}}
+                  </div>
+              </div>
+
+              <div *ngIf="naoExcluiu == true" class="text-center alert alert-danger">
+                  <div>
+                    {{mensagem}}
+                  </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="py-5">
+            <button (click)="close()" style="margin-left: 30px" type="button" class="btn btn-danger btn-lg">Cancelar</button>
+          </div>
+        </div>
+      </div>
+      </div>
+  </div>

@@ -1,5 +1,5 @@
 <div class="modal-header">
-  <h4 class="modal-title" id="modal-ajustar-title">Feedback:</h4>
+  <h4 class="modal-title" id="modal-editar-feedback-title">Editar feedback:</h4>
   <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
     <span aria-hidden="true">&times;</span>
   </button>
@@ -16,31 +16,25 @@
           </div>
         </div>
         <div class="form-group row">
-          <label for="terapeuta" class="col-sm-2 col-form-label">Terapeuta:</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="terapeuta" placeholder="nome do terapeuta" value="{{terapeuta.nome}}" disabled=true>
-          </div>
-        </div>
-        <div class="form-group row">
           <label for="comofoi" class="col-sm-2 col-form-label">Como foi/foram sua(s) sessão(ões) nessa PIC<br>(p.ex.:positiva, negativa, não sabe responder)?:</label>
           <div class="col-sm-10">
-            <input name="comofoi" type="text" class="form-control" id="comofoi" placeholder="Como foi o atendimento para você"> 
+            <input name="comofoi" type="text" class="form-control" id="comofoi" placeholder="Como foi o atendimento para você" value="{{feedback.comofoi}}" required> 
           </div>
         </div>
         <div class="form-group row">
           <label for="relate" class="col-sm-2 col-form-label">Relate sua experiência e sensações nessa PIC:</label>
           <div class="col-sm-10">
-            <input name="relate" type="text" class="form-control" id="relate" placeholder="Relate sua experiencia">
+            <input name="relate" type="text" class="form-control" id="relate" placeholder="Relate sua experiencia" required value="{{feedback.relate}}">
           </div>
         </div>
         <div class="form-group row">
           <label for="impressao" class="col-sm-2 col-form-label">Qual impressão, mudança, benefício e/ou <br> comentário sobre os dias posteriores à(s) sessão(ões)?:</label>
           <div class="col-sm-10">
-            <input name="impressao" type="text" class="form-control" id="impressao" placeholder="Sua impressão sobre o atendimento">
+            <input name="impressao" type="text" class="form-control" id="impressao" placeholder="Sua impressão sobre o atendimento" required value="{{feedback.impressao}}">
           </div>
         </div>
         <div class="py-2">
-          <button (click)="registrarFeedback()" type="button" class="btn btn-success btn-lg">Enviar</button>          
+          <button (click)="editarFeedback()" type="button" class="btn btn-success btn-lg">Editar</button>          
         </div>
         <div class="py-3">
           <button (click)="close()" type="button" class="btn btn-danger btn-lg">Cancelar</button>

@@ -16,8 +16,8 @@ export class FormularioService {
     return this.http.get<FormPesquisa[]>(this.apiUrl + "/preencheu/" + idUsuario)   //Se ele preencheu, teremos pelo menos 1 resultado nessa busca
   }
 
-  public createFormulario(formulario: FormPesquisa) {    //Participante preenche formulário, enviamos o formulario completo no body do http para a api
-    this.http.post(this.apiUrl + '/addFormulario', {
+  public createFormulario(formulario: FormPesquisa,id: number) {    //Participante preenche formulário, enviamos o formulario completo no body do http para a api
+    this.http.post(this.apiUrl + '/addFormulario/'+id, {
       'idParticipante': formulario.idparticipante, 'nome': formulario.nome,
       'sexo': formulario.sexo, 'idade': formulario.idade, 'dataNasc': formulario.datanasc,
       'telefone': formulario.telefone, 'naturalidade': formulario.naturalidade, 'profissao': formulario.profissao,

@@ -20,50 +20,82 @@
                 <div class="form-group row">
                     <label for="Nome" class="col-sm-2 col-form-label">Nome:</label>
                     <div class="col-sm-10">
-                        <input type="email" class="form-control" id="Nome" placeholder="exemplo@hotmail.com">
+                        <input type="email" class="form-control" id="nome" placeholder="exemplo@hotmail.com" value="{{usuario.nome}}" disabled=true>
                     </div>
                 </div>
-                <!--SEXO RADIO BUTTONS-->
                 <div class="form-row">
-                    <div class="form-group col-md-4">
+                    <div class="form-group">
                         <label for="Sexo">Sexo:</label>
-                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                            <div class="btn btn-secondary">
-                                <input type="radio" name="opcao" id="F" checked> F
+                        <div class="text-center row" style="margin-left: 357px;">
+                            <div class="px-3">
+                                <input [(ngModel)]="formulario.sexo" value="S" type="radio" name="opcaoSexo" id="F"
+                                    autocomplete="off" checked value="F">F
                             </div>
-                            <div class="btn btn-secondary">
-                                <input type="radio" name="opcao" id="M"> M
+                            <div class="px-3">
+                                <input [(ngModel)]="formulario.sexo" [ngModelOptions]="{standalone: true}" value="N" type="radio" name="opcaoSexo" id="M"
+                                    autocomplete="off" value="M">M
                             </div>
                         </div>
                     </div>
-                    <div class="form-group col-md-2">
+                    <div class="form-group row col-md-2">
                         <label for="idade">idade:</label>
-                        <input type="text" class="form-control" id="idade" placeholder="">
+                        <input [(ngModel)]="formulario.idade" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="idade" placeholder="">
                     </div>
-                    <div class="form-group col-md-4">
+                    
+                </div>
+                <div class="form-group row">
+                    <div>
                         <label for="DataNasc">Data de nascimento:</label>
-                        <input type="text" class="form-control" id="DataNasc" placeholder="">
+                        <input [(ngModel)]="formulario.datanasc" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="DataNasc" placeholder="">
                     </div>
                 </div>
                 <div class="form row">
                     <label for="Telefone" class="col-sm-2 col-form-label">Telefone:</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="Telefone" placeholder="">
+                        <input [(ngModel)]="formulario.telefone" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="Telefone" placeholder="">
                     </div>
                     <label for="Naturalidade" class="col-sm-2 col-form-label">Naturalidade:</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="Naturalidade" placeholder="">
+                        <input [(ngModel)]="formulario.naturalidade" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="Naturalidade" placeholder="">
                     </div>
                 </div>
                 <div class="form row">
                     <label for="Profissao" class="col-sm-2 col-form-label">Profissão:</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="Profissao" placeholder="">
+                        <input [(ngModel)]="formulario.profissao" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="Profissao" placeholder="">
                     </div>
                     <label for="Religiao" class="col-sm-2 col-form-label">Religião:</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="Religiao" placeholder="">
+                        <input [(ngModel)]="formulario.religiao" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="Religiao" placeholder="">
                     </div>
+                </div>
+                <div class="form row">
+                    <label for="indicacao" class="col-sm-2 col-form-label">Origem/indicação:</label>
+                </div>
+                <div>
+                    <div class="text-center row" style="margin-left: 357px;">
+                        <div class="px-3">
+                            <input [(ngModel)]="formulario.indicacao" [ngModelOptions]="{standalone: true}" type="radio" name="opcaoIndicacao" id="IndicacaoSaude"
+                                autocomplete="off" checked value="Saúde e Qualidade de Vida do Servido-CQVS"> Saúde e Qualidade de Vida do Servido-CQVS
+                        </div>
+                        <div class="px-3">
+                            <input [(ngModel)]="formulario.indicacao" [ngModelOptions]="{standalone: true}" type="radio" name="opcaoIndicacao" id="IndicacaoAnima"
+                                autocomplete="off" value="Ânima">Ânima
+                        </div>
+                        <div class="px-3">
+                            <input [(ngModel)]="formulario.indicacao" [ngModelOptions]="{standalone: true}" type="radio" name="opcaoIndicacao" id="IndicacaoNucleo"
+                                autocomplete="off" value="Ânima">Núcleo de Vigilância Epidemiológica do HUSM
+                        </div>
+                        <div class="px-3">
+                            <input [(ngModel)]="formulario.indicacao" [ngModelOptions]="{standalone: true}" type="radio" name="opcaoIndicacao" id="IndicacaoSecretaria"
+                                autocomplete="off" value="Secretaria Municipal de Saúde de Santa Maria">Secretaria Municipal de Saúde de Santa Maria
+                        </div>
+                        <div class="px-3">
+                            <input [(ngModel)]="formulario.indicacao" [ngModelOptions]="{standalone: true}" type="radio" name="opcaoIndicacao" id="IndicacaoOut"
+                                autocomplete="off" value="Outro:">Outro:
+                                <input [(ngModel)]="indicacaoOutro" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="indicacaoOutro" placeholder="">            
+                        </div>
+                    </div>                    
                 </div>
                 <div class="py-2">
                     <p><b>Anamnese</b></p>
@@ -72,63 +104,63 @@
                     <label for="Pergunta1">
                         1. Faz uso de algum tipo de medicamento? Em caso afirmativo, qual(uais)?
                     </label>
-                    <input type="text" class="form-control" id="Pergunta1" placeholder="">
+                    <input [(ngModel)]="formulario.pergunta1" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="Pergunta1" placeholder="">
                 </div>
                 <div class="form-group">
                     <label for="Pergunta2">
                         2. Há efetividade no uso do(s) medicamento(s)? Há algum efeito colateral ou não desejado?
                         Qual(uais)?
                     </label>
-                    <input type="text" class="form-control" id="Pergunta2" placeholder="">
+                    <input [(ngModel)]="formulario.pergunta2" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="Pergunta2" placeholder="">
                 </div>
                 <div class="form-group">
                     <label for="Pergunta3">
                         3. Faz uso de algum tipo de erva ou chá? Em caso afirmativo, qual(uais)?
                     </label>
-                    <input type="text" class="form-control" id="Pergunta3" placeholder="">
+                    <input [(ngModel)]="formulario.pergunta3" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="Pergunta3" placeholder="">
                 </div>
                 <div class="form-group">
                     <label for="Pergunta4">
                         4. Há efetividade no uso da(s) erva(s) ou chá(s)? Há algum efeito colateral ou não desejado?
                         Qual(uais)?
                     </label>
-                    <input type="text" class="form-control" id="Pergunta4" placeholder="">
+                    <input [(ngModel)]="formulario.pergunta4" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="Pergunta4" placeholder="">
                 </div>
                 <div class="form-group">
                     <label for="Pergunta5">
                         5. Possui alguma doença diagnosticada por médico (p.ex: depressão, hipertensão, etc.)? Em caso
                         afirmativo, qual(uais)?
                     </label>
-                    <input type="text" class="form-control" id="" placeholder="">
+                    <input [(ngModel)]="formulario.pergunta5" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="" placeholder="">
                 </div>
                 <div class="form-group">
                     <label for="Pergunta6">
                         6. Faz algum tratamento com especialista? Em caso afirmativo, qual(uais) especialidade(s) (p.
                         ex: cardiologista, psicólogo, pneumologista, etc.) e há quanto tempo?
                     </label>
-                    <input type="text" class="form-control" id="Pergunta6" placeholder="">
+                    <input [(ngModel)]="formulario.pergunta6" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="Pergunta6" placeholder="">
                 </div>
                 <div class="form-group">
                     <label for="Pergunta7">
                         7. O que você costuma sentir em termos físicos?
                         <!--Check Boxes-->
-                        <div class="btn-group-toggle" data-toggle="buttons">
+                        <div>
                             <div class="row">
-                                <input type="checkbox"> Dor muscular
-                                <input type="checkbox"> Cansaço
-                                <input type="checkbox"> Fadiga
-                                <input type="checkbox"> Aceleração do coração
+                                <input id="dorMuscular" type="checkbox"> Dor muscular
+                                <input id="cansaco" type="checkbox"> Cansaço
+                                <input id="fadiga" type="checkbox"> Fadiga
+                                <input id="taquicardia" type="checkbox"> Aceleração do coração
                             </div>
                             <div class="row">
-                                <input type="checkbox"> Suor excessivo
-                                <input type="checkbox"> Dificuldade para pegar no sono
-                                <input type="checkbox"> Insônia
+                                <input id="sudorese" type="checkbox"> Suor excessivo
+                                <input id="difRespirar" type="checkbox"> Dificuldade para pegar no sono
+                                <input id="insonia" type="checkbox"> Insônia
                             </div>
                             <div class="row">
-                                <input type="checkbox"> Constipação
-                                <input type="checkbox"> Gripe frequente
-                                <input type="checkbox"> Outro
-                                <input type="text" class="form-control" id="Pergunta7obs" placeholder="">
+                                <input id="constipacao" type="checkbox"> Constipação
+                                <input id="gripeFrequente" type="checkbox"> Gripe frequente
+                                <label for="Pergunta7obs">Obs:</label>
+                                <input [(ngModel)]="formulario.pergunta7obs" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="Pergunta7obs" placeholder="">
                             </div>
                         </div>
                     </label>
@@ -137,23 +169,23 @@
                     <label for="Pergunta8"></label>
                     8. O que você costuma sentir em termos emocionais?
                     <!--Check boxes-->
-                    <div class="btn-group-toggle" data-toggle="buttons">
+                    <div >
                         <div class="row">
-                            <input type="checkbox"> Felicidade
-                            <input type="checkbox"> Tristeza
-                            <input type="checkbox"> Estresse
-                            <input type="checkbox"> Bem-estar
-                            <input type="checkbox"> Depressão
+                            <input id="felicidade"  type="checkbox"> Felicidade
+                            <input id="tristeza" type="checkbox"> Tristeza
+                            <input id="estresse" type="checkbox"> Estresse
+                            <input id="bemestar" type="checkbox"> Bem-estar
+                            <input id="depressao" type="checkbox"> Depressão
                         </div>
                         <div class="row">
-                            <input type="checkbox"> Ansiedade
-                            <input type="checkbox"> Impaciência
+                            <input id="ansiedade" type="checkbox"> Ansiedade
+                            <input id="impaciencia" type="checkbox"> Impaciência
                             <input type="checkbox"> Outro:
-                            <input type="text" class="form-control" id="Pergunta8outros" placeholder="">
+                            <input [(ngModel)]="formulario.pergunta8outros" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="Pergunta8outros" placeholder="">
                             <label for="">
                                 Obs.:
                             </label>
-                            <input type="text" class="form-control" id="Pergunta8obs" placeholder="">
+                            <input [(ngModel)]="formulario.pergunta8obs" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="Pergunta8obs" placeholder="">
                         </div>
                     </div>
                 </div>
@@ -166,25 +198,25 @@
                         <label for="Pergunta9a">
                             Família:
                         </label>
-                        <input type="text" class="form-control" id="Pergunta9a" placeholder="">
+                        <input [(ngModel)]="formulario.pergunta9a" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="Pergunta9a" placeholder="">
                     </div>
                     <div class="form-group row">
                         <label for="Pergunta9b">
                             Trabalho:
                         </label>
-                        <input type="text" class="form-control" id="Pergunta9b" placeholder="">
+                        <input [(ngModel)]="formulario.pergunta9b" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="Pergunta9b" placeholder="">
                     </div>
                     <div class="form-group row">
                         <label for="Pergunta9c">
                             Amigos:
                         </label>
-                        <input type="text" class="form-control" id="Pergunta9c" placeholder="">
+                        <input [(ngModel)]="formulario.pergunta9c" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="Pergunta9c" placeholder="">
                     </div>
                     <div class="form-group row">
                         <label for="Pergunta9d">
                             Parceiro/cônjuge:
                         </label>
-                        <input type="text" class="form-control" id="Pergunta9d" placeholder="">
+                        <input [(ngModel)]="formulario.pergunta9d" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="Pergunta9d" placeholder="">
                     </div>
                 </div>
                 <div class="">
@@ -196,32 +228,32 @@
                         <label for="Pergunta10a">
                             Alimentos saudáveis:
                         </label>
-                        <input type="text" class="form-control" id="Pergunta10a" placeholder="">
+                        <input [(ngModel)]="formulario.pergunta10a" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="Pergunta10a" placeholder="">
                     </div>
                     <div class="form-group row">
                         <label for="Pergunta10b">
                             Alimentos não saudáveis:
                         </label>
-                        <input type="text" class="form-control" id="Pergunta10b" placeholder="">
+                        <input [(ngModel)]="formulario.pergunta10b" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="Pergunta10b" placeholder="">
                     </div>
                     <div class="form-group row">
                         <label for="Pergunta10c">
                             Bebidas alcoólicas:
                         </label>
-                        <input type="text" class="form-control" id="Pergunta10c" placeholder="">
+                        <input [(ngModel)]="formulario.pergunta10c" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="Pergunta10c" placeholder="">
                     </div>
                     <div class="form-group row">
                         <label for="Pergunta10d">
                             Água:
                         </label>
-                        <input type="text" class="form-control" id="Pergunta10d" placeholder="">
+                        <input [(ngModel)]="formulario.pergunta10d" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="Pergunta10d" placeholder="">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="Pergunta11">
                         11. Você possui algum vício? Em caso afirmativo, qual(uais)?
                     </label>
-                    <input type="text" class="form-control" id="Pergunta11" placeholder="">
+                    <input [(ngModel)]="formulario.pergunta11" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="Pergunta11" placeholder="">
                 </div>
                 <div class="py-2">
                     <p><b>PICS</b></p>
@@ -231,49 +263,49 @@
                         1. Você já ouviu falar sobre terapias integrativas e complementares? Em caso afirmativo, marque
                         quais:
                     </label>
-                    <div class="btn-group-toggle" data-toggle="buttons">
+                    <div >
                         <div class="row">
-                            <input type="checkbox"> Acupuntura
-                            <input type="checkbox"> Arteterapia
-                            <input type="checkbox"> Osteopatia
-                            <input type="checkbox"> Apiterapia
-                            <input type="checkbox"> Geoterapia
+                            <input id="Acupuntura" type="checkbox"> Acupuntura
+                            <input id="Arteterapia" type="checkbox"> Arteterapia
+                            <input id="Osteopatia" type="checkbox"> Osteopatia
+                            <input id="Apiterapia" type="checkbox"> Apiterapia
+                            <input id="Geoterapia" type="checkbox"> Geoterapia
                         </div>
                         <div class="row">
-                            <input type="checkbox"> Homeopatia
-                            <input type="checkbox"> Ayurveda
-                            <input type="checkbox"> Quiropraxia
-                            <input type="checkbox"> Aromaterapia
-                            <input type="checkbox"> Hipnoterapia
+                            <input id="Homeopatia" type="checkbox"> Homeopatia
+                            <input id="Ayurveda" type="checkbox"> Ayurveda
+                            <input id="Quiropraxia" type="checkbox"> Quiropraxia
+                            <input id="Aromaterapia" type="checkbox"> Aromaterapia
+                            <input id="Hipnoterapia" type="checkbox"> Hipnoterapia
                         </div>
                         <div class="row">
-                            <input type="checkbox"> Fitoterapia
-                            <input type="checkbox"> Biodança
-                            <input type="checkbox"> Reflexoterapia
-                            <input type="checkbox"> Bioenergética
-                            <input type="checkbox"> Imposição de mãos
+                            <input id="Fitoterapia" type="checkbox"> Fitoterapia
+                            <input id="Biodanca" type="checkbox"> Biodança
+                            <input id="Reflexoterapia" type="checkbox"> Reflexoterapia
+                            <input id="Bioenergetica" type="checkbox"> Bioenergética
+                            <input id="Imposicao" type="checkbox"> Imposição de mãos
                         </div>
                         <div class="row">
-                            <input type="checkbox"> Antroposofia
-                            <input type="checkbox"> Dança circular
-                            <input type="checkbox"> Reiki
-                            <input type="checkbox"> Constelação familiar
-                            <input type="checkbox"> Ozonioterapia
+                            <input id="Antroposofia" type="checkbox"> Antroposofia
+                            <input id="Danca" type="checkbox"> Dança circular
+                            <input id="Reiki" type="checkbox"> Reiki
+                            <input id="Constelacao" type="checkbox"> Constelação familiar
+                            <input id="Ozonioterapia" type="checkbox"> Ozonioterapia
                         </div>
                         <div class="row">
-                            <input type="checkbox"> Termalismo
-                            <input type="checkbox"> Meditação
-                            <input type="checkbox"> Shantala
-                            <input type="checkbox"> Cromoterapia
-                            <input type="checkbox"> Terapia de florais
+                            <input id="Termalismo" type="checkbox"> Termalismo
+                            <input id="Meditacao" type="checkbox"> Meditação
+                            <input id="Shantala" type="checkbox"> Shantala
+                            <input id="Cromoterapia" type="checkbox"> Cromoterapia
+                            <input id="Florais" type="checkbox"> Terapia de florais
                         </div>
                         <div class="row">
-                            <input type="checkbox"> Musicoterapia
-                            <input type="checkbox"> Terapia comunitária integrativa
+                            <input id="Musicoterapia" type="checkbox"> Musicoterapia
+                            <input id="Comunitaria" type="checkbox"> Terapia comunitária integrativa
                         </div>
                         <div class="row">
-                            <input type="checkbox"> Naturopatia
-                            <input type="checkbox"> Yoga
+                            <input id="Naturopatia" type="checkbox"> Naturopatia
+                            <input id="Yoga" type="checkbox"> Yoga
                         </div>
                     </div>
                 </div>
@@ -281,34 +313,75 @@
                     <label for="Pergunta13">
                         2. Por que você buscou a(s) terapia(s) integrativa(s)?
                     </label>
-                    <input type="text" class="form-control" id="Pergunta13" placeholder="">
+                    <input [(ngModel)]="formulario.pergunta13" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="Pergunta13" placeholder="">
                 </div>
                 <div class="form-group">
                     <label for="Pergunta14">
                         3. Você acredita nas terapias integrativas e complementares?
                     </label>
-                    <!--Radio buttons para sim e não-->>
+                    <div class="text-center row" style="margin-left: 357px;">
+                        <div class="px-3">
+                            <input [(ngModel)]="formulario.pergunta14" [ngModelOptions]="{standalone: true}" value="S" type="radio" name="opcaoAcredita" id="AcreditaSim"
+                                autocomplete="off" checked value="Sim">Sim
+                        </div>
+                        <div class="px-3">
+                            <input [(ngModel)]="formulario.pergunta14" [ngModelOptions]="{standalone: true}" value="N" type="radio" name="opcaoAcredita" id="AcreditaNao"
+                                autocomplete="off" value="Nao">Nao
+                        </div>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="Pergunta15">
                         4. Você já vivenciou alguma terapia integrativa e complementar?
                     </label>
-                    <button type="radio" name="" id="Pergunta7">Sim</button>
-                    <button type="radio" name="" id="Pergunta7">Não</button>
-                    <!--Radio button não e sim com campo para qual(uais)-->
-                    <input type="text" class="form-control" id="Pergunta15quais" placeholder="">
+                    <div class="text-center row" style="margin-left: 357px;">
+                        <div class="px-3">
+                            <input [(ngModel)]="formulario.pergunta15" [ngModelOptions]="{standalone: true}" value="S" type="radio" name="opcaoVivenciou" id="vivenciouSim"
+                                autocomplete="off" checked value="Sim">Sim
+                        </div>
+                        <div class="px-3">
+                            <input [(ngModel)]="formulario.pergunta15" [ngModelOptions]="{standalone: true}" value="N" type="radio" name="opcaoVivenciou" id="vivenciouNao"
+                                autocomplete="off" value="Nao">Nao
+                        </div>
+                    </div>
+                    <input [(ngModel)]="formulario.pergunta15quais" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="Pergunta15quais" placeholder="">
                 </div>
                 <div class="form-group">
                     <label for="Pergunta16">
                         5. Como você considerou os resultados da(s) terapia(s) que já vivenciou?
                     </label>
-                    <!--Radio buttons para Positivo, negativo ou indiferente-->
+                    <div class="text-center row" style="margin-left: 357px;">
+                        <div class="px-3">
+                            <input [(ngModel)]="formulario.pergunta16" [ngModelOptions]="{standalone: true}" type="radio" name="opcaoConsiderou" id="considerouPositivo"
+                                autocomplete="off" checked value="Positivo">Positivo
+                        </div>
+                        <div class="px-3">
+                            <input [(ngModel)]="formulario.pergunta16" [ngModelOptions]="{standalone: true}" type="radio" name="opcaoConsiderou" id="considerouNegativo"
+                                autocomplete="off" value="Negativo">Negativo
+                        </div>
+                        <div class="px-3">
+                            <input [(ngModel)]="formulario.pergunta16" [ngModelOptions]="{standalone: true}" type="radio" name="opcaoConsiderou" id="considerouIndiferente"
+                                autocomplete="off" value="Indiferente">Indiferente
+                        </div>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="Pergunta17">
                         Você tem algum tipo de habilidade parapsíquica?
                     </label>
-                    <!--Checkboxes para intuições, precognições, retrocognições, clarividencia, clariaudiencia, outras com input text-->>
+                    <div class="row">
+                        <input id="intuicoes" type="checkbox"> Intuições
+                        <input id="precognicoes" type="checkbox"> Precognições
+                        <input id="retrocognicoes" type="checkbox"> Retrocognições
+                        <input id="clarividencia" type="checkbox"> Clarividência
+                        <input id="clariaudiencia" type="checkbox"> Clariaudiência
+                    </div>
+                    <label for="Pergunta17outras">
+                        Você tem algum tipo de habilidade parapsíquica?
+                    </label>
+                    <div class="row">
+                        <input [(ngModel)]="formulario.pergunta16" [ngModelOptions]="{standalone: true}" type="text" id="Pergunta17outras">                        
+                    </div>
                 </div>
                 <div class="py-2">
                     <p><b>*Precognições:</b> informações sobre um possível futuro.
@@ -325,8 +398,8 @@
 
                 <!--Origem/indicação: RADIO BUTTONS-->
                 <div>
-
-                    <button type="button" class="btn btn-success btn-lg">Enviar</button>
+                    <ngx-spinner bdOpacity = 0.9 bdColor = "rgba(0,0,0,0)" size="medium" color = "#00ffc3" type="line-spin-clockwise-fade" [fullScreen] = "true"><p style="color: white">Carregando...</p></ngx-spinner>
+                    <button (click)="enviarFormulario()" type="button" class="btn btn-success btn-lg">Enviar</button>
                 </div>
             </div>
         </div>

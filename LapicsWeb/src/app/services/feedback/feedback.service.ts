@@ -30,7 +30,11 @@ export class FeedbackService {
   }
 
   editFeedback(feedback: Feedback) {   //Editar um feedback (Participante).
-    this.http.post(this.apiurl + '/editFeedback/' + feedback.idfeedback, { "pic": feedback.pic, "comofoi": feedback.comofoi, "relate": feedback.relate, "impressao": feedback.impressao }).subscribe(res => { console.log(res) })
+    this.http.put(this.apiurl + '/editFeedback/' + feedback.idfeedback, { "pic": feedback.pic, "comofoi": feedback.comofoi, "relate": feedback.relate, "impressao": feedback.impressao }).subscribe(res => { console.log(res) })
+  }
+
+  deleteFeedback(feedback: Feedback) {   //Editar um feedback (Participante).
+    this.http.delete(this.apiurl + '/editFeedback/' + feedback.idfeedback, { }).subscribe(res => { console.log(res) })
   }
 
   setFeedbackSelecionado(feedback: Feedback) {   //Define um feedback armazenado no service.

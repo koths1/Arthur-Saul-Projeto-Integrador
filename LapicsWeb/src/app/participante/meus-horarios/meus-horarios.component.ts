@@ -65,12 +65,8 @@ export class MeusHorariosComponent implements OnInit {
     this.feedbackService.getFeedbackByAgendamento(id).subscribe( res => {
       this.feedbackApi = res
       if(this.feedbackApi.length != 0){
-        this.spinner.show()
-        this.messageService.setMessage("O feedback para este agendamento já foi preenchido. :)")
-        this.modalService.openMessage()
-        setTimeout(() => {
-          this.spinner.hide()
-        }, 3000)
+        this.feedbackService.setFeedbackSelecionado(this.feedbackApi[0])
+        this.modalService.openEditarFeedback()
       }else if(this.feedbackApi.length == 0){
         this.modalService.openFeedback()        
       }

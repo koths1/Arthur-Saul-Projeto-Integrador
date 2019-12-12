@@ -47,7 +47,7 @@ export class CadastroComponent implements OnInit {
           if (this.usuarioAPI.length != 0) {
             this.usuario = this.usuarioAPI[0]
           }
-          this.messageService.setMessage("Bem vindo " + this.usuario.nome + "!!!")
+          this.messageService.setMessage("Bem-vindo " + this.usuario.nome + "!!!")
           this.modalService.openMessage()
           this.spinner.hide()
           this.userAuth.setLoggedIn(true, this.usuario)

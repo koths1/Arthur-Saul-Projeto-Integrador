@@ -9,19 +9,18 @@ import { Usuario } from 'src/app/model/usuario';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'ngbd-modal-ajustar',
-  templateUrl: './modal-ajustar.html'
+  selector: 'ngbd-modal-editar-agendamento',
+  templateUrl: './modal-editar-agendamento.html'
 })
-export class NgbdModalAjustar {
+export class NgbdModalEditarAgendamento {
 
   mensagem: string
   agendamento: Agendamento = new Agendamento()
-  novoAgendamento: Agendamento = new Agendamento()  //O objeto que recebe os parametros do html para ser enviado para o service e cadastrado
   semana: any[] = []                  //Esse array de qualquer serve para armazenar os dias da semana atual
   diaSelecionado: any                 //Variavel utilizada na validação do formulario de cadastrar agendamento
   terapeutaSelecionado: Usuario       //Terapeuta selecionado para ser cadastrado no agendamento
-  criou: boolean
-  naoCriou: boolean
+  editou: boolean
+  naoEditou: boolean
 
   constructor(private modalService: NgbModal,
     private usuarioService: UsuarioService,
@@ -30,8 +29,10 @@ export class NgbdModalAjustar {
     private agendamentoService: AgendamentoService,
     private route: Router) {
 
-      this.criou = false;
-      this.naoCriou = false;
+      this.agendamento = agendamentoService.getAgendamentoSelecionado()
+
+      this.editou = false;
+      this.naoEditou = false;
 
       let curr = new Date
       let week = []
@@ -47,19 +48,21 @@ export class NgbdModalAjustar {
 
   select(dia: any) {   //Seleciona o dia do agendamento
     console.log(dia)
-    this.novoAgendamento.dia = dia;
+    this.agendamento.dia = dia;
     this.diaSelecionado = dia;
   }
 
-  criarAgendamento() {   //Monta o agendamento com os dados ja inseridos no agendamento com os dados vindos do ngModel do html
-    this.novoAgendamento.terapia = (<HTMLSelectElement>document.getElementById('terapia')).value
-    this.novoAgendamento.hora = (<HTMLSelectElement>document.getElementById('hora')).value
-    this.novoAgendamento.lugar = (<HTMLSelectElement>document.getElementById('lugar')).value
+  editarAgendamento() {   //Monta o agendamento com os dados ja inseridos no agendamento com os dados vindos do ngModel do html
+    this.agendamento.terapia = (<HTMLSelectElement>document.getElementById('terapia')).value
+    this.agendamento.hora = (<HTMLSelectElement>document.getElementById('hora')).value
+    this.agendamento.lugar = (<HTMLSelectElement>document.getElementById('lugar')).value
     this.terapeutaSelecionado = this.usuarioService.getUsuarioSelecionado()
-    try{this.agendamentoService.criarAgendamento(this.novoAgendamento, this.terapeutaSelecionado.idusuario)
-      this.criou = true;
+    try{this.agendamentoService.editarAgendamento(this.agendamento)
+      this.mensagem = "Agendamento alterado com sucesso!!!"
+      this.editou = true;
     }catch(e){
-      this.naoCriou = true;
+      this.mensagem = "Não foi possivel alterar o agendamento, por favor verifique os campos.."
+      this.naoEditou = true;
     }
     setTimeout(() => {
       this.close()

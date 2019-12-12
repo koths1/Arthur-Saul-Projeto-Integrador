@@ -17,6 +17,7 @@ export class GerenciarFuncionariosComponent implements OnInit {
   usuario: Usuario = new Usuario()
   funcionariosCount: number
   cadastrar: boolean
+  funcionarioSelecionado: Usuario = new Usuario()
 
   constructor(private modalService: ModalService,
     private usuarioService: UsuarioService,
@@ -33,35 +34,26 @@ export class GerenciarFuncionariosComponent implements OnInit {
   ngOnInit() {
   }
 
-  abrirCadastrar() {
-    this.cadastrar = true
-  }
-
   cancelar() {
     this.cadastrar = false
   }
 
   cadastrarFuncionario() {
-    //this.modalService.openCadastrar()
-    try {
+    this.modalService.openCadastrar()
+    
+  }
 
-      this.usuarioService.cadastrarFuncionario(this.usuario);
-      this.messageService.setMessage("Funcionario cadastrado com sucesso!!!")
-      this.modalService.openMessage()
-      this.spinner.show()
-      setTimeout(() => {
-        this.spinner.hide()
-        this.route.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-          this.route.navigateByUrl("/funcionarios")
-        })
-      }, 5000)
+  editar(id: number){
+    this.funcionarioSelecionado = this.funcionarios.find((i => i.idusuario === id));
+    console.log(this.funcionarioSelecionado);
+    this.usuarioService.setUsuarioSelecionado(this.funcionarioSelecionado)
+    this.modalService.openEditar()
+  }
 
-    } catch (e) {
-
-      this.messageService.setMessage("Falha ao cadastrar funcionarios...")
-      this.modalService.openMessage()
-
-    }
+  excluir(id: number){
+    this.funcionarioSelecionado = this.funcionarios.find((i => i.idusuario === id));
+    this.usuarioService.setUsuarioSelecionado(this.funcionarioSelecionado)
+    this.modalService.openConfirmar()
   }
 
 }
