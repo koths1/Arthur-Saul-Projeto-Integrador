@@ -19,7 +19,7 @@ export class FormularioService {
   public createFormulario(formulario: FormPesquisa,id: number) {    //Participante preenche formulário, enviamos o formulario completo no body do http para a api
     this.http.post(this.apiUrl + '/addFormulario/'+id, {
       'idParticipante': formulario.idparticipante, 'nome': formulario.nome,
-      'sexo': formulario.sexo, 'idade': formulario.idade, 'dataNasc': formulario.datanasc,
+      'sexo': formulario.sexo, 'idade': formulario.idade, 'datanasc': formulario.datanasc,
       'telefone': formulario.telefone, 'naturalidade': formulario.naturalidade, 'profissao': formulario.profissao,
       'religiao': formulario.religiao, 'indicacao': formulario.indicacao, 'pergunta1': formulario.pergunta1,
       'pergunta2': formulario.pergunta2, 'pergunta3': formulario.pergunta3, 'pergunta4': formulario.pergunta4,

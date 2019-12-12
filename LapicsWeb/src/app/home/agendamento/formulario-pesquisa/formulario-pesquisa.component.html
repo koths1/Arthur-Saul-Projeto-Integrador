@@ -20,53 +20,56 @@
                 <div class="form-group row">
                     <label for="Nome" class="col-sm-2 col-form-label">Nome:</label>
                     <div class="col-sm-10">
-                        <input type="email" class="form-control" id="nome" placeholder="exemplo@hotmail.com" value="{{usuario.nome}}" disabled=true>
+                        <input type="email" class="form-control" id="nome" placeholder="exemplo@hotmail.com"
+                            value="{{usuario.nome}}" disabled=true>
                     </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="Sexo">Sexo:</label>
-                        <div class="text-center row" style="margin-left: 357px;">
-                            <div class="px-3">
-                                <input [(ngModel)]="formulario.sexo" value="S" type="radio" name="opcaoSexo" id="F"
-                                    autocomplete="off" checked value="F">F
-                            </div>
-                            <div class="px-3">
-                                <input [(ngModel)]="formulario.sexo" [ngModelOptions]="{standalone: true}" value="N" type="radio" name="opcaoSexo" id="M"
-                                    autocomplete="off" value="M">M
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group row col-md-2">
-                        <label for="idade">idade:</label>
-                        <input [(ngModel)]="formulario.idade" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="idade" placeholder="">
-                    </div>
-                    
                 </div>
                 <div class="form-group row">
-                    <div>
-                        <label for="DataNasc">Data de nascimento:</label>
-                        <input [(ngModel)]="formulario.datanasc" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="DataNasc" placeholder="">
+                    <label for="Sexo">Sexo:</label>
+                    <div class="text-center">
+                        <div class="px-3">
+                            <input [(ngModel)]="formulario.sexo" value="S" type="radio" name="opcaoSexo" id="F"
+                                autocomplete="off" checked value="F">F
+                            <input [(ngModel)]="formulario.sexo" [ngModelOptions]="{standalone: true}" value="N"
+                                type="radio" name="opcaoSexo" id="M" autocomplete="off" value="M">M
+                        </div>
+                    </div>
+
+                </div>
+                <div class="form row">
+                    <label for="idade">idade:</label>
+                    <div class="col-sm-10">
+                        <input [(ngModel)]="formulario.idade" [ngModelOptions]="{standalone: true}" type="number"
+                            class="form-control" id="idade" placeholder="">
                     </div>
                 </div>
                 <div class="form row">
+                    <label for="DataNasc">Data de nascimento:</label>
+                    <div class="col-sm-10">
+                        <input [(ngModel)]="formulario.datanasc" [ngModelOptions]="{standalone: true}" type="text"
+                            class="form-control" id="DataNasc" placeholder="00/00/00" maxlength="8">
+                    </div>
                     <label for="Telefone" class="col-sm-2 col-form-label">Telefone:</label>
                     <div class="col-sm-10">
-                        <input [(ngModel)]="formulario.telefone" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="Telefone" placeholder="">
+                        <input [(ngModel)]="formulario.telefone" [ngModelOptions]="{standalone: true}" type="text"
+                            class="form-control" id="Telefone" placeholder="" maxlength="20">
                     </div>
                     <label for="Naturalidade" class="col-sm-2 col-form-label">Naturalidade:</label>
                     <div class="col-sm-10">
-                        <input [(ngModel)]="formulario.naturalidade" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="Naturalidade" placeholder="">
+                        <input [(ngModel)]="formulario.naturalidade" [ngModelOptions]="{standalone: true}" type="text"
+                            class="form-control" id="Naturalidade" placeholder="" maxlength="30">
                     </div>
                 </div>
                 <div class="form row">
                     <label for="Profissao" class="col-sm-2 col-form-label">Profissão:</label>
                     <div class="col-sm-10">
-                        <input [(ngModel)]="formulario.profissao" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="Profissao" placeholder="">
+                        <input [(ngModel)]="formulario.profissao" [ngModelOptions]="{standalone: true}" type="text"
+                            class="form-control" id="Profissao" placeholder="" maxlength="30">
                     </div>
                     <label for="Religiao" class="col-sm-2 col-form-label">Religião:</label>
                     <div class="col-sm-10">
-                        <input [(ngModel)]="formulario.religiao" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="Religiao" placeholder="">
+                        <input [(ngModel)]="formulario.religiao" [ngModelOptions]="{standalone: true}" type="text"
+                            class="form-control" id="Religiao" placeholder="" maxlength="30">
                     </div>
                 </div>
                 <div class="form row">
@@ -75,27 +78,34 @@
                 <div>
                     <div class="text-center row" style="margin-left: 357px;">
                         <div class="px-3">
-                            <input [(ngModel)]="formulario.indicacao" [ngModelOptions]="{standalone: true}" type="radio" name="opcaoIndicacao" id="IndicacaoSaude"
-                                autocomplete="off" checked value="Saúde e Qualidade de Vida do Servido-CQVS"> Saúde e Qualidade de Vida do Servido-CQVS
+                            <input [(ngModel)]="formulario.indicacao" [ngModelOptions]="{standalone: true}" type="radio"
+                                name="opcaoIndicacao" id="IndicacaoSaude" autocomplete="off" checked
+                                value="Saúde e Qualidade de Vida do Servido-CQVS"> Saúde e Qualidade de Vida do
+                            Servido-CQVS
                         </div>
                         <div class="px-3">
-                            <input [(ngModel)]="formulario.indicacao" [ngModelOptions]="{standalone: true}" type="radio" name="opcaoIndicacao" id="IndicacaoAnima"
-                                autocomplete="off" value="Ânima">Ânima
+                            <input [(ngModel)]="formulario.indicacao" [ngModelOptions]="{standalone: true}" type="radio"
+                                name="opcaoIndicacao" id="IndicacaoAnima" autocomplete="off" value="Ânima">Ânima
                         </div>
                         <div class="px-3">
-                            <input [(ngModel)]="formulario.indicacao" [ngModelOptions]="{standalone: true}" type="radio" name="opcaoIndicacao" id="IndicacaoNucleo"
-                                autocomplete="off" value="Ânima">Núcleo de Vigilância Epidemiológica do HUSM
+                            <input [(ngModel)]="formulario.indicacao" [ngModelOptions]="{standalone: true}" type="radio"
+                                name="opcaoIndicacao" id="IndicacaoNucleo" autocomplete="off" value="Núcleo de
+                                Vigilância Epidemiológica do HUSM">Núcleo de
+                            Vigilância Epidemiológica do HUSM
                         </div>
                         <div class="px-3">
-                            <input [(ngModel)]="formulario.indicacao" [ngModelOptions]="{standalone: true}" type="radio" name="opcaoIndicacao" id="IndicacaoSecretaria"
-                                autocomplete="off" value="Secretaria Municipal de Saúde de Santa Maria">Secretaria Municipal de Saúde de Santa Maria
+                            <input [(ngModel)]="formulario.indicacao" [ngModelOptions]="{standalone: true}" type="radio"
+                                name="opcaoIndicacao" id="IndicacaoSecretaria" autocomplete="off"
+                                value="Secretaria Municipal de Saúde de Santa Maria">Secretaria Municipal de Saúde de
+                            Santa Maria
                         </div>
                         <div class="px-3">
-                            <input [(ngModel)]="formulario.indicacao" [ngModelOptions]="{standalone: true}" type="radio" name="opcaoIndicacao" id="IndicacaoOut"
-                                autocomplete="off" value="Outro:">Outro:
-                                <input [(ngModel)]="indicacaoOutro" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="indicacaoOutro" placeholder="">            
+                            <input [(ngModel)]="formulario.indicacao" [ngModelOptions]="{standalone: true}" type="radio"
+                                name="opcaoIndicacao" id="IndicacaoOut" autocomplete="off" value="Outro:">Outro:
+                            <input [(ngModel)]="indicacaoOutro" [ngModelOptions]="{standalone: true}" type="text"
+                                class="form-control" id="indicacaoOutro" placeholder="">
                         </div>
-                    </div>                    
+                    </div>
                 </div>
                 <div class="py-2">
                     <p><b>Anamnese</b></p>
@@ -104,74 +114,83 @@
                     <label for="Pergunta1">
                         1. Faz uso de algum tipo de medicamento? Em caso afirmativo, qual(uais)?
                     </label>
-                    <input [(ngModel)]="formulario.pergunta1" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="Pergunta1" placeholder="">
+                    <input [(ngModel)]="formulario.pergunta1" [ngModelOptions]="{standalone: true}" type="text"
+                        class="form-control" id="Pergunta1" placeholder="" maxlength="30">
                 </div>
                 <div class="form-group">
                     <label for="Pergunta2">
                         2. Há efetividade no uso do(s) medicamento(s)? Há algum efeito colateral ou não desejado?
                         Qual(uais)?
                     </label>
-                    <input [(ngModel)]="formulario.pergunta2" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="Pergunta2" placeholder="">
+                    <input [(ngModel)]="formulario.pergunta2" [ngModelOptions]="{standalone: true}" type="text"
+                        class="form-control" id="Pergunta2" placeholder="" maxlength="30">
                 </div>
                 <div class="form-group">
                     <label for="Pergunta3">
                         3. Faz uso de algum tipo de erva ou chá? Em caso afirmativo, qual(uais)?
                     </label>
-                    <input [(ngModel)]="formulario.pergunta3" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="Pergunta3" placeholder="">
+                    <input [(ngModel)]="formulario.pergunta3" [ngModelOptions]="{standalone: true}" type="text"
+                        class="form-control" id="Pergunta3" placeholder="" maxlength="30">
                 </div>
                 <div class="form-group">
                     <label for="Pergunta4">
                         4. Há efetividade no uso da(s) erva(s) ou chá(s)? Há algum efeito colateral ou não desejado?
                         Qual(uais)?
                     </label>
-                    <input [(ngModel)]="formulario.pergunta4" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="Pergunta4" placeholder="">
+                    <input [(ngModel)]="formulario.pergunta4" [ngModelOptions]="{standalone: true}" type="text"
+                        class="form-control" id="Pergunta4" placeholder="" maxlength="30">
                 </div>
                 <div class="form-group">
                     <label for="Pergunta5">
                         5. Possui alguma doença diagnosticada por médico (p.ex: depressão, hipertensão, etc.)? Em caso
                         afirmativo, qual(uais)?
                     </label>
-                    <input [(ngModel)]="formulario.pergunta5" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="" placeholder="">
+                    <input [(ngModel)]="formulario.pergunta5" [ngModelOptions]="{standalone: true}" type="text"
+                        class="form-control" id="" placeholder="" maxlength="30">
                 </div>
                 <div class="form-group">
                     <label for="Pergunta6">
                         6. Faz algum tratamento com especialista? Em caso afirmativo, qual(uais) especialidade(s) (p.
                         ex: cardiologista, psicólogo, pneumologista, etc.) e há quanto tempo?
                     </label>
-                    <input [(ngModel)]="formulario.pergunta6" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="Pergunta6" placeholder="">
+                    <input [(ngModel)]="formulario.pergunta6" [ngModelOptions]="{standalone: true}" type="text"
+                        class="form-control" id="Pergunta6" placeholder="" maxlength="30">
                 </div>
                 <div class="form-group">
                     <label for="Pergunta7">
                         7. O que você costuma sentir em termos físicos?
-                        <!--Check Boxes-->
-                        <div>
-                            <div class="row">
-                                <input id="dorMuscular" type="checkbox"> Dor muscular
-                                <input id="cansaco" type="checkbox"> Cansaço
-                                <input id="fadiga" type="checkbox"> Fadiga
-                                <input id="taquicardia" type="checkbox"> Aceleração do coração
-                            </div>
-                            <div class="row">
-                                <input id="sudorese" type="checkbox"> Suor excessivo
-                                <input id="difRespirar" type="checkbox"> Dificuldade para pegar no sono
-                                <input id="insonia" type="checkbox"> Insônia
-                            </div>
-                            <div class="row">
-                                <input id="constipacao" type="checkbox"> Constipação
-                                <input id="gripeFrequente" type="checkbox"> Gripe frequente
-                                <label for="Pergunta7obs">Obs:</label>
-                                <input [(ngModel)]="formulario.pergunta7obs" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="Pergunta7obs" placeholder="">
-                            </div>
-                        </div>
                     </label>
+                    <div style="margin-left: 366px;">
+                        <div class="row">
+                            <input id="dorMuscular" type="checkbox"> Dor muscular
+                            <input id="cansaco" type="checkbox"> Cansaço
+                            <input id="fadiga" type="checkbox"> Fadiga
+                            <input id="taquicardia" type="checkbox"> Aceleração do coração
+                        </div>
+                        <div class="row">
+                            <input id="sudorese" type="checkbox"> Suor excessivo
+                            <input id="difRespirar" type="checkbox"> Dificuldade para pegar no sono
+                            <input id="insonia" type="checkbox"> Insônia
+                        </div>
+                        <div class="row">
+                            <input id="constipacao" type="checkbox"> Constipação
+                            <input id="gripeFrequente" type="checkbox"> Gripe frequente
+                        </div>
+
+                    </div>
+                    <div class="text-center">
+                        <label for="Pergunta7obs">Obs:</label>
+                        <input [(ngModel)]="formulario.pergunta7obs" [ngModelOptions]="{standalone: true}" type="text"
+                            class="form-control" id="Pergunta7obs" placeholder="" maxlength="20">
+                    </div>
                 </div>
                 <div class="form-group">
-                    <label for="Pergunta8"></label>
-                    8. O que você costuma sentir em termos emocionais?
-                    <!--Check boxes-->
-                    <div >
+                    <label for="Pergunta8">
+                        8. O que você costuma sentir em termos emocionais?
+                    </label>
+                    <div style="margin-left: 372px;">
                         <div class="row">
-                            <input id="felicidade"  type="checkbox"> Felicidade
+                            <input id="felicidade" type="checkbox"> Felicidade
                             <input id="tristeza" type="checkbox"> Tristeza
                             <input id="estresse" type="checkbox"> Estresse
                             <input id="bemestar" type="checkbox"> Bem-estar
@@ -181,12 +200,18 @@
                             <input id="ansiedade" type="checkbox"> Ansiedade
                             <input id="impaciencia" type="checkbox"> Impaciência
                             <input type="checkbox"> Outro:
-                            <input [(ngModel)]="formulario.pergunta8outros" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="Pergunta8outros" placeholder="">
-                            <label for="">
-                                Obs.:
-                            </label>
-                            <input [(ngModel)]="formulario.pergunta8obs" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="Pergunta8obs" placeholder="">
+
+
                         </div>
+                    </div>
+                    <div class="text-center">
+                        <input [(ngModel)]="formulario.pergunta8outros" [ngModelOptions]="{standalone: true}"
+                            type="text" class="form-control" id="Pergunta8outros" placeholder="" maxlength="10">
+                        <label for="">
+                            Obs.:
+                        </label>
+                        <input [(ngModel)]="formulario.pergunta8obs" [ngModelOptions]="{standalone: true}" type="text"
+                            class="form-control" id="Pergunta8obs" placeholder="" maxlength="20">
                     </div>
                 </div>
                 <div class="">
@@ -198,25 +223,29 @@
                         <label for="Pergunta9a">
                             Família:
                         </label>
-                        <input [(ngModel)]="formulario.pergunta9a" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="Pergunta9a" placeholder="">
+                        <input [(ngModel)]="formulario.pergunta9a" [ngModelOptions]="{standalone: true}" type="text"
+                            class="form-control" id="Pergunta9a" placeholder="" maxlength="30">
                     </div>
                     <div class="form-group row">
                         <label for="Pergunta9b">
                             Trabalho:
                         </label>
-                        <input [(ngModel)]="formulario.pergunta9b" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="Pergunta9b" placeholder="">
+                        <input [(ngModel)]="formulario.pergunta9b" [ngModelOptions]="{standalone: true}" type="text"
+                            class="form-control" id="Pergunta9b" placeholder="" maxlength="30">
                     </div>
                     <div class="form-group row">
                         <label for="Pergunta9c">
                             Amigos:
                         </label>
-                        <input [(ngModel)]="formulario.pergunta9c" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="Pergunta9c" placeholder="">
+                        <input [(ngModel)]="formulario.pergunta9c" [ngModelOptions]="{standalone: true}" type="text"
+                            class="form-control" id="Pergunta9c" placeholder="" maxlength="30">
                     </div>
                     <div class="form-group row">
                         <label for="Pergunta9d">
                             Parceiro/cônjuge:
                         </label>
-                        <input [(ngModel)]="formulario.pergunta9d" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="Pergunta9d" placeholder="">
+                        <input [(ngModel)]="formulario.pergunta9d" [ngModelOptions]="{standalone: true}" type="text"
+                            class="form-control" id="Pergunta9d" placeholder="" maxlength="30">
                     </div>
                 </div>
                 <div class="">
@@ -228,32 +257,37 @@
                         <label for="Pergunta10a">
                             Alimentos saudáveis:
                         </label>
-                        <input [(ngModel)]="formulario.pergunta10a" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="Pergunta10a" placeholder="">
+                        <input [(ngModel)]="formulario.pergunta10a" [ngModelOptions]="{standalone: true}" type="text"
+                            class="form-control" id="Pergunta10a" placeholder="" maxlength="30">
                     </div>
                     <div class="form-group row">
                         <label for="Pergunta10b">
                             Alimentos não saudáveis:
                         </label>
-                        <input [(ngModel)]="formulario.pergunta10b" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="Pergunta10b" placeholder="">
+                        <input [(ngModel)]="formulario.pergunta10b" [ngModelOptions]="{standalone: true}" type="text"
+                            class="form-control" id="Pergunta10b" placeholder="" maxlength="30">
                     </div>
                     <div class="form-group row">
                         <label for="Pergunta10c">
                             Bebidas alcoólicas:
                         </label>
-                        <input [(ngModel)]="formulario.pergunta10c" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="Pergunta10c" placeholder="">
+                        <input [(ngModel)]="formulario.pergunta10c" [ngModelOptions]="{standalone: true}" type="text"
+                            class="form-control" id="Pergunta10c" placeholder="" maxlength="30">
                     </div>
                     <div class="form-group row">
                         <label for="Pergunta10d">
                             Água:
                         </label>
-                        <input [(ngModel)]="formulario.pergunta10d" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="Pergunta10d" placeholder="">
+                        <input [(ngModel)]="formulario.pergunta10d" [ngModelOptions]="{standalone: true}" type="text"
+                            class="form-control" id="Pergunta10d" placeholder="" maxlength="30">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="Pergunta11">
                         11. Você possui algum vício? Em caso afirmativo, qual(uais)?
                     </label>
-                    <input [(ngModel)]="formulario.pergunta11" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="Pergunta11" placeholder="">
+                    <input [(ngModel)]="formulario.pergunta11" [ngModelOptions]="{standalone: true}" type="text"
+                        class="form-control" id="Pergunta11" placeholder="" maxlength="30">
                 </div>
                 <div class="py-2">
                     <p><b>PICS</b></p>
@@ -263,7 +297,7 @@
                         1. Você já ouviu falar sobre terapias integrativas e complementares? Em caso afirmativo, marque
                         quais:
                     </label>
-                    <div >
+                    <div style="margin-left: 350px;">
                         <div class="row">
                             <input id="Acupuntura" type="checkbox"> Acupuntura
                             <input id="Arteterapia" type="checkbox"> Arteterapia
@@ -313,38 +347,42 @@
                     <label for="Pergunta13">
                         2. Por que você buscou a(s) terapia(s) integrativa(s)?
                     </label>
-                    <input [(ngModel)]="formulario.pergunta13" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="Pergunta13" placeholder="">
+                    <input [(ngModel)]="formulario.pergunta13" [ngModelOptions]="{standalone: true}" type="text"
+                        class="form-control" id="Pergunta13" placeholder="" maxlength="40">
                 </div>
                 <div class="form-group">
                     <label for="Pergunta14">
                         3. Você acredita nas terapias integrativas e complementares?
                     </label>
-                    <div class="text-center row" style="margin-left: 357px;">
+                    <div class="text-center row" style="margin-left: 470px;">
                         <div class="px-3">
-                            <input [(ngModel)]="formulario.pergunta14" [ngModelOptions]="{standalone: true}" value="S" type="radio" name="opcaoAcredita" id="AcreditaSim"
-                                autocomplete="off" checked value="Sim">Sim
+                            <input [(ngModel)]="formulario.pergunta14" [ngModelOptions]="{standalone: true}" value="S"
+                                type="radio" name="opcaoAcredita" id="AcreditaSim" autocomplete="off" checked
+                                value="Sim">Sim
                         </div>
                         <div class="px-3">
-                            <input [(ngModel)]="formulario.pergunta14" [ngModelOptions]="{standalone: true}" value="N" type="radio" name="opcaoAcredita" id="AcreditaNao"
-                                autocomplete="off" value="Nao">Nao
+                            <input [(ngModel)]="formulario.pergunta14" [ngModelOptions]="{standalone: true}" value="N"
+                                type="radio" name="opcaoAcredita" id="AcreditaNao" autocomplete="off" value="Nao">Nao
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="Pergunta15">
-                        4. Você já vivenciou alguma terapia integrativa e complementar?
+                        4. Você já vivenciou alguma terapia integrativa e complementar? Em caso afirmativo, quais?
                     </label>
-                    <div class="text-center row" style="margin-left: 357px;">
+                    <div class="text-center row" style="margin-left: 470px;">
                         <div class="px-3">
-                            <input [(ngModel)]="formulario.pergunta15" [ngModelOptions]="{standalone: true}" value="S" type="radio" name="opcaoVivenciou" id="vivenciouSim"
-                                autocomplete="off" checked value="Sim">Sim
+                            <input [(ngModel)]="formulario.pergunta15" [ngModelOptions]="{standalone: true}" value="S"
+                                type="radio" name="opcaoVivenciou" id="vivenciouSim" autocomplete="off" checked
+                                value="Sim">Sim
                         </div>
                         <div class="px-3">
-                            <input [(ngModel)]="formulario.pergunta15" [ngModelOptions]="{standalone: true}" value="N" type="radio" name="opcaoVivenciou" id="vivenciouNao"
-                                autocomplete="off" value="Nao">Nao
+                            <input [(ngModel)]="formulario.pergunta15" [ngModelOptions]="{standalone: true}" value="N"
+                                type="radio" name="opcaoVivenciou" id="vivenciouNao" autocomplete="off" value="Nao">Nao
                         </div>
                     </div>
-                    <input [(ngModel)]="formulario.pergunta15quais" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="Pergunta15quais" placeholder="">
+                    <input [(ngModel)]="formulario.pergunta15quais" [ngModelOptions]="{standalone: true}" type="text"
+                        class="form-control" id="Pergunta15quais" placeholder="" maxlength="20">
                 </div>
                 <div class="form-group">
                     <label for="Pergunta16">
@@ -352,16 +390,19 @@
                     </label>
                     <div class="text-center row" style="margin-left: 357px;">
                         <div class="px-3">
-                            <input [(ngModel)]="formulario.pergunta16" [ngModelOptions]="{standalone: true}" type="radio" name="opcaoConsiderou" id="considerouPositivo"
-                                autocomplete="off" checked value="Positivo">Positivo
+                            <input [(ngModel)]="formulario.pergunta16" [ngModelOptions]="{standalone: true}"
+                                type="radio" name="opcaoConsiderou" id="considerouPositivo" autocomplete="off" checked
+                                value="Positivo">Positivo
                         </div>
                         <div class="px-3">
-                            <input [(ngModel)]="formulario.pergunta16" [ngModelOptions]="{standalone: true}" type="radio" name="opcaoConsiderou" id="considerouNegativo"
-                                autocomplete="off" value="Negativo">Negativo
+                            <input [(ngModel)]="formulario.pergunta16" [ngModelOptions]="{standalone: true}"
+                                type="radio" name="opcaoConsiderou" id="considerouNegativo" autocomplete="off"
+                                value="Negativo">Negativo
                         </div>
                         <div class="px-3">
-                            <input [(ngModel)]="formulario.pergunta16" [ngModelOptions]="{standalone: true}" type="radio" name="opcaoConsiderou" id="considerouIndiferente"
-                                autocomplete="off" value="Indiferente">Indiferente
+                            <input [(ngModel)]="formulario.pergunta16" [ngModelOptions]="{standalone: true}"
+                                type="radio" name="opcaoConsiderou" id="considerouIndiferente" autocomplete="off"
+                                value="Indiferente">Indiferente
                         </div>
                     </div>
                 </div>
@@ -369,18 +410,19 @@
                     <label for="Pergunta17">
                         Você tem algum tipo de habilidade parapsíquica?
                     </label>
-                    <div class="row">
+                    <div class="row" style="margin-left: 308px;">
                         <input id="intuicoes" type="checkbox"> Intuições
                         <input id="precognicoes" type="checkbox"> Precognições
                         <input id="retrocognicoes" type="checkbox"> Retrocognições
                         <input id="clarividencia" type="checkbox"> Clarividência
                         <input id="clariaudiencia" type="checkbox"> Clariaudiência
                     </div>
-                    <label for="Pergunta17outras">
-                        Você tem algum tipo de habilidade parapsíquica?
-                    </label>
-                    <div class="row">
-                        <input [(ngModel)]="formulario.pergunta16" [ngModelOptions]="{standalone: true}" type="text" id="Pergunta17outras">                        
+                    <div class="row" style="margin-left: 427px;">
+                        <label for="Pergunta17outras">
+                            Outras:
+                        </label>
+                        <input [(ngModel)]="formulario.pergunta17outras" [ngModelOptions]="{standalone: true}"
+                            type="text" id="Pergunta17outras" maxlength="30">
                     </div>
                 </div>
                 <div class="py-2">
@@ -398,7 +440,10 @@
 
                 <!--Origem/indicação: RADIO BUTTONS-->
                 <div>
-                    <ngx-spinner bdOpacity = 0.9 bdColor = "rgba(0,0,0,0)" size="medium" color = "#00ffc3" type="line-spin-clockwise-fade" [fullScreen] = "true"><p style="color: white">Carregando...</p></ngx-spinner>
+                    <ngx-spinner bdOpacity=0.9 bdColor="rgba(0,0,0,0)" size="medium" color="#00ffc3"
+                        type="line-spin-clockwise-fade" [fullScreen]="true">
+                        <p style="color: white">Carregando...</p>
+                    </ngx-spinner>
                     <button (click)="enviarFormulario()" type="button" class="btn btn-success btn-lg">Enviar</button>
                 </div>
             </div>

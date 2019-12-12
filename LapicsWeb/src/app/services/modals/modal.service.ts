@@ -67,7 +67,7 @@ export class ModalService {
   }
 
   openEditarFeedback(){
-    const modalRef = this.modalCtrl.open(NgbdModalEditarFeedback)
+    const modalRef = this.modalCtrl.open(NgbdModalEditarFeedback, {size: 'xl', scrollable: true})
   }
 
 }
